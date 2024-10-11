@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= URL . rutaCss ?>">
     <link rel="stylesheet" href="<?= URL . rutaIcons ?>">
+    <link rel="stylesheet" href="<?= URL . rutaCssBase ?>">
 
-    <!-- <?php if (isset($extra_css)) : ?>
-        <link rel="stylesheet" href="<?= $extra_css ?>">
-    <?php endif; ?> -->
+    <?php if (isset($datos['css-ext'])) : ?>
+        <link rel="stylesheet" href="<?= URL.$datos['css-ext'] ?>">
+    <?php endif; ?>
 
     <title><?= $datos['title'] ?></title>
 </head>

@@ -56,7 +56,7 @@ class Core{
         call_user_func_array([$this->controller, $this->method], $this->parameters);
 
         }else{
-            $this->controller = ucwords('views');
+            $this->controller = ucwords('farmacia');
 
             require_once '../app/controllers/' . $this->controller . '.php';
             $this->controller = new $this->controller;

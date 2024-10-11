@@ -6,15 +6,16 @@
     define('URL', 'http://localhost:8080/proyecto-farmacia');
 
     //* Urls Js
-    define("rutaJs", "/js/bootstrap.bundle.min.js");
-    define("rutaJsCustom", "/js");
+    define("rutaJs", "/public/js/bootstrap.bundle.min.js");
+    define("rutaJsCustom", "/public/js");
 
     //* Urls Css
-    define("rutaCss", "/css/bootstrap.min.css");
-    define("rutaCssCustom", "/css");
+    define("rutaCss", "/public/css/bootstrap.min.css");
+    define("rutaCssBase", "/public/css/base.css");
+    define("rutaCssCustom", "/public/css");
     
     //* Url Img
-    define("rutaImg", "/img");
+    define("rutaImg", "/public/img");
 
     //* Url Icons
-    define("rutaIcons", "/icons/font-awesome/css/all.min.css");
+    define("rutaIcons", "/public/icons/font-awesome/css/all.min.css");

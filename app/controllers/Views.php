@@ -1,10 +1,10 @@
 <?php
-
+//* Plantill,a del proyecto
 class Views extends Control
 {
     public function index(){
         $datos = [
-            "title" => "Login"
+            "title" => "Inicio"
         ];
 
         $this->load_view('login', $datos);
