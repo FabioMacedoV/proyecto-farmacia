@@ -1,0 +1,22 @@
+/** Especial **/
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/** Barra de navegación **/
+.header{
+    background-color: #1ac8bd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    padding: 5px 10%;
+}
+
+.header .logo img{
+    height: 80px;
+    width: auto;
+    border-radius: 20px;
+    justify-content: center;
+}

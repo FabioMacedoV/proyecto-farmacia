@@ -1,9 +1,10 @@
 <?php require_once APP . '/views/inc/header.php' ?>
 
-<div class="container-fluid bg-light py-5">
-    <div class="container">
-        <h1 class="display-4">Login</h1>
+<header class="header">
+    <div class="logo">
+        <img src="<?= URL . rutaImg . "/logo-farmacia.jpg" ?>" alt="Logo NickyFarma">
     </div>
-</div>
+</header>
+
 
 <?php require_once APP . '/views/inc/footer.php' ?>

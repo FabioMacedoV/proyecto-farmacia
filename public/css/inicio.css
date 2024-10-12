@@ -122,3 +122,96 @@
     height: 300px;
     width: auto;
 }
+
+/** Categorias **/
+.categorias{
+    height: 1030px;
+}
+
+.categorias .titulo-categoria{
+    font-size: 60px;
+    text-align: center;
+    padding: 30px;
+}
+
+.categorias .img-categoria {
+    text-align: center;
+}
+
+.categorias .img-categoria img{
+    height: 430px;
+    padding:25px;
+    width: auto;
+}
+
+/** Footer **/
+.footer {
+    background-color: #000;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    border-top: 1px solid #1c1c1c;
+    border-bottom: 1px solid #1c1c1c;
+    padding: 20px 0;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 0 20px;
+    text-align: left;
+}
+
+.footer-section h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.footer-section p{
+    color: #fff;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.footer-logo {
+    max-width: 100px;
+    margin-bottom: 15px;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #fff;
+}
+
+/* Responsivo para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .footer-section {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
+  

@@ -10,7 +10,16 @@ class Farmacia extends Control{
         ];
 
         $this->load_view('inicio', $datos);
+    }
 
+    public function login(){
+
+        $datos = [
+            "title" => "Login",
+            "css-ext" => '/css/login.css'
+        ];
+
+        $this->load_view("login", $datos);
     }
 
 }
