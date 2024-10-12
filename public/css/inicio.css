@@ -1,9 +1,16 @@
+/** Especial **/
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/** Barra de navegación **/
 .header{
     background-color: #1ac8bd;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 95px;
+    height: 100px;
     padding: 5px 10%;
 }
 
@@ -61,4 +68,57 @@
     background-color: #159189;
     color: #fff;
     transform: scale(1.1);
+}
+/** Pagina Principal **/
+
+.fondo-principal{
+    height: 714px;
+    background-image: url('../img/fondo-principal.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.fondo-principal .titulos{
+    text-align: left;
+    align-content: center;
+    padding: 50px;
+}
+
+.fondo-principal .titulos .titulo{
+    font-size: 80px;
+    color: #000;
+}
+
+.fondo-principal .titulos .subtitulo{
+    font-size: 40px;
+    color: #000;
+}
+
+.fondo-principal .boton-principal button{
+    font-weight: 700;
+    color: #fff;
+    padding: 9px 25px;
+    padding: 20px 50px;
+    background-color: #159189;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.fondo-principal .boton-principal button:hover{
+    background-color: #fff;
+    color: #159189;
+    transform: scale(1.1);
+}
+
+.fondo-principal .imagen-fondo{
+    text-align: center;
+    align-content: center;
+    height: 714px;
+}
+
+.fondo-principal .imagen-fondo img{
+    height: 300px;
+    width: auto;
 }

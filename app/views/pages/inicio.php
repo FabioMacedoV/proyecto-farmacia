@@ -1,23 +1,19 @@
 <?php require_once APP . '/views/inc/header.php' ?>
 
-<header class="header">
-    <div class="logo">
-        <img src="<?= URL . rutaImg . "/logo-farmacia.jpg" ?>" alt="Logo NickyFarma">
-    </div>
+<?php require_once APP . '/views/inc/nav-principal.php' ?>
 
-    <nav>
-        <ul class="nav-links">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Categorías</a></li>
-            <li><a href="#">Registro</a></li>
-            <li>
-                <a href="#">
-                    <i class="fa-brands fa-whatsapp"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <a href="#" class="boton"><button><i class="fa-solid fa-door-open"></i> Ingresar</button></a>
-</header>
+<div class="fondo-principal">
+    <div class="row">
+        <div class="col-7 titulos">
+            <h1 class="titulo">Lorem, ipsum.</h1>
+            <h2 class="subtitulo">Lorem ipsum dolor sit amet consectetur.</h2>
+            <a href="#" class="boton-principal"><button>Lorem, ipsum.</button></a>
+        </div>
+        <div class="col imagen-fondo">
+            <img src="<?= URL . rutaImg . "/logo-farmacia.jpg" ?>" alt="Logo NickyFarma">
+        </div>
+    </div>
+</div>
+
 
 <?php require_once APP . '/views/inc/footer.php' ?>
