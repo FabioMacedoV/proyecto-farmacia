@@ -6,8 +6,8 @@
     <nav>
         <ul class="nav-links">
             <li><a href="#">Orden</a></li>
-            <li><a href="#">Venta</a></li>
-            <li><a href="#">Trabajadores</a></li>
+            <li><a href="#">Ventas</a></li>
+            <li><a href="#">Empleado</a></li>
             <li><a href="#">Clientes</a></li>
             <li><a href="#">Productos</a></li>
         </ul>
