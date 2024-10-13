@@ -73,7 +73,7 @@
 
 .fondo-principal{
     height: 714px;
-    background-image: url('../img/fondo-principal.jpg');
+    background-image: url('../../img/fondo-principal.jpg');
     background-position: center;
     background-size: cover;
 }
