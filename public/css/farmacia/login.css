@@ -1,0 +1,94 @@
+/** Especial **/
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/** Barra de navegación **/
+.header{
+    background-color: #1ac8bd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    padding: 5px 10%;
+}
+
+.header .logo img{
+    height: 80px;
+    width: auto;
+    border-radius: 20px;
+    justify-content: center;
+}
+
+/** Login **/
+.login-container {
+    height: 690px;
+    background: #fff;
+}
+
+.login-text{
+    text-align: start;
+    padding: 20px 30px;
+}
+
+.login-text h2{
+    color: #000;
+    font-size: 60px;
+}
+
+.login-image {
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+} 
+
+.login-image img{
+    border: 2px solid #000;
+    height: 450px;
+}
+
+
+.login-b {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-b .circle{
+    width: 650px;
+    height: 650px;
+    background-color: #1ac8bd; 
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.form-login{
+    margin-bottom: 20px;
+    width: 500px;
+}
+
+.circle .label{
+    width: 100%;
+    text-align: start;
+    color: #000;
+    font-size: 24px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #13a097;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #118594;
+}
