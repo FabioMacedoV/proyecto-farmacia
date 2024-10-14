@@ -1,28 +1,36 @@
 <?php
 
-class Conexion{
+class Conexion extends Control{
 
-    function ConexionDB(){
+    private $conexion;
+
+    function conectar(){
 
         $host = "D08KLAB102PC012\SQLEXPRESS";
         $dbname = "NickyMedicPrueba";
         $username = "usr_nickymedic";
         $password = "prueba12345";
-        
+
         try{
-            $conn = new PDO("sqlsrv:server=$host;database=$dbname", $username, $password);
+            $this->conexion = new PDO("sqlsrv:server=$host;database=$dbname", $username, $password);
             
-            if($conn){
-                return "Se conectó correctamente a la base de datos";
-            }else{
-                return "No se conecto";
-            }
+            $this->conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            return $this->conexion;
 
         }catch(PDOException $exp){
             echo("No se logró conectar correctamente con la Base de datos: $dbname, Error: " . $exp->getMessage());
         }
 
         return false;
+    }
+
+    public function desconectar(){
+        $this->conexion = null;
+    }
+
+    public function prepare($sql) {
+        return $this->conexion->prepare($sql); // Devuelve la declaración preparada
     }
 
 }

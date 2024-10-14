@@ -28,15 +28,15 @@
             <div class="row">
                 <div class="login-b">
                     <div class="circle">
-                        <form class="form-login">
+                        <form method="post" action="<?= URL . "/farmacia/iniciar_sesion" ?>" class="form-login">
                             <h2>Accede a NickyMedic</h2>
                             <div class="mb-3">
                                 <label class="label" for="username">Usuario:</label>
-                                <input class="form-control" type="text" id="username" name="username" required>
+                                <input class="form-control" type="text" name="txtusuario" id="txtusuario" required>
                             </div>
                             <div class="mb-3">
                                 <label class="label" for="password">Contraseña:</label>
-                                <input class="form-control" type="password" id="password" name="password" required>
+                                <input class="form-control" type="password" name="txtcontrasenia" id="txtcontrasenia" required>
                             </div>
                             <a href="<?= URL . "/mantenimiento/inicio" ?>" class="boton"><button><i class="fa-solid fa-door-open"></i> Ingresar</a>
 
