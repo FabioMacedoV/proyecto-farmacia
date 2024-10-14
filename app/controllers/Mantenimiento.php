@@ -15,4 +15,20 @@ class Mantenimiento extends Control{
 
         $this->load_view('mantenimiento/inicio', $datos);
     }
+
+    public function empleado(){
+
+        $datos = [
+            'title' => 'Inicio',
+            'css-ext' => '/css/mantenimiento/empleado.css',
+            'roles' => [
+                ["value" => 1, "label" => "Rol 1"],
+                ["value" => 2, "label" => "Rol 2"],
+                ["value" => 3, "label" => "Rol 3"],
+            ],
+        ];
+
+        $this->load_view('mantenimiento/form-empleado', $datos);
+
+    }
 }
