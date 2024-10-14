@@ -4,23 +4,25 @@ class Conexion{
 
     function ConexionDB(){
 
-        $host = "localhost";
-        $dbname = "restobar";
-        $username = "usr_restobar";
-        $password = "fabio12345";
-        $puerto = 1433;
-
+        $host = "D08KLAB102PC012\SQLEXPRESS";
+        $dbname = "NickyMedicPrueba";
+        $username = "usr_nickymedic";
+        $password = "prueba12345";
+        
         try{
-
-            $conn = new PDO("sqlsrv:Server=$host,$puerto;Database=$dbname", $username, $password);
-            $resp = "Se conecto correctamente a la base de datos";
+            $conn = new PDO("sqlsrv:server=$host;database=$dbname", $username, $password);
+            
+            if($conn){
+                return "Se conectó correctamente a la base de datos";
+            }else{
+                return "No se conecto";
+            }
 
         }catch(PDOException $exp){
-            echo("No se logro conectar correctamente con la Base de datos: $dbname, Error: $exp");
+            echo("No se logró conectar correctamente con la Base de datos: $dbname, Error: " . $exp->getMessage());
         }
 
-        return $resp;
-
+        return false;
     }
 
 }

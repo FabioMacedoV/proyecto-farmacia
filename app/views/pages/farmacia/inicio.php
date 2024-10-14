@@ -2,8 +2,6 @@
 
 <?php require_once APP . '/views/inc/nav-principal.php' ?>
 
-<?php echo $datos['conexion'] ?>
-
 <div class="fondo-principal">
     <div class="row">
         <div class="col-7 titulos">

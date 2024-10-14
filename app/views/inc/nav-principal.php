@@ -7,7 +7,6 @@
         <ul class="nav-links">
             <li><a href="#">Inicio</a></li>
             <li><a href="#">Categorías</a></li>
-            <li><a href="#">Registro</a></li>
             <li>
                 <a href="#">
                     <i class="fa-brands fa-whatsapp"></i>
