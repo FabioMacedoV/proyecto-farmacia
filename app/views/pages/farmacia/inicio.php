@@ -2,16 +2,18 @@
 
 <?php require_once APP . '/views/inc/nav-principal.php' ?>
 
+<?php echo $datos['conexion'] ?>
+
 <div class="fondo-principal">
     <div class="row">
         <div class="col-7 titulos">
-            <h1 class="titulo">Lorem, ipsum.</h1>
-            <h2 class="subtitulo">Lorem ipsum dolor sit amet consectetur.</h2>
-            <a href="#" class="boton-principal"><button>Lorem, ipsum.</button></a>
+            <h1 class="titulo">Health & Care Nicky</h1>
+            <h2 class="subtitulo">Todo lo que Necesitas para Cuidar de Tu Salud y la de Tu Familia</h2>
+            <a href="#" class="boton-principal"><button>Contactar</button></a>
         </div>
-        <div class="col imagen-fondo">
-            <img src="<?= URL . rutaImg . "/logo-farmacia.jpg" ?>" alt="Logo NickyFarma">
-        </div>
+        <!-- <div class="col imagen-fondo">
+            <img src="<?= URL . rutaImg . "/logo-farmacia.png" ?>" alt="Logo NickyFarma">
+        </div> -->
     </div>
 </div>
 
@@ -22,15 +24,15 @@
 
     <div class="row">
         <div class="col img-categoria">
-            <img src="<?= URL . rutaImg . "/imagen-categoria.jpg" ?>" alt="Logo NickyFarma">
+            <img src="<?= URL . rutaImg . "/bebe.jpg" ?>" alt="Logo NickyFarma">
         </div>
         <div class="col img-categoria">
-            <img src="<?= URL . rutaImg . "/imagen-categoria.jpg" ?>" alt="Logo NickyFarma">
+            <img src="<?= URL . rutaImg . "/medicamentos.jpg" ?>" alt="Logo NickyFarma">
         </div>
     </div>
     <div class="row">
         <div class="col img-categoria">
-            <img src="<?= URL . rutaImg . "/imagen-categoria.jpg" ?>" alt="Logo NickyFarma">
+            <img src="<?= URL . rutaImg . "/persona.jpg" ?>" alt="Logo NickyFarma">
         </div>
     </div>
 
@@ -39,8 +41,8 @@
 <div class="footer">
     <div class="footer-container">
         <div class="footer-section">
-            <img src="<?= URL . rutaImg . "/logo-farmacia.jpg" ?>" alt="Logo NickyFarma" class="footer-logo">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+            <img src="<?= URL . rutaImg . "/logo-nav.png" ?>" alt="Logo NickyFarma" class="footer-logo">
+            <p>Health & Care Nicky</p>
         </div>
 
         <div class="footer-section">
@@ -63,7 +65,7 @@
         </div>
 
         <div class="footer-section">
-            <img src="<?= URL . rutaImg . "/logo-farmacia.jpg" ?>" alt="Logo NickyFarma" class="footer-logo">
+            <img src="<?= URL . rutaImg . "/logo-nav.png" ?>" alt="Logo NickyFarma" class="footer-logo">
         </div>
     </div>
 

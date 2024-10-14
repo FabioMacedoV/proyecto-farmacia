@@ -6,7 +6,7 @@
 
 /** Barra de navegación **/
 .header{
-    background-color: #1ac8bd;
+    background-color: #2f98ba;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,8 +33,10 @@
 }
 
 .login-text h2{
-    color: #000;
-    font-size: 60px;
+    color: #2f98ba;
+    font-size: 80px;
+    font-weight: bold;
+    margin-right: 20x;
 }
 
 .login-image {
@@ -43,11 +45,10 @@
     text-align: center;
 } 
 
-.login-image img{
-    border: 2px solid #000;
+.login-image img {
     height: 450px;
+    margin-left: -170px;
 }
-
 
 .login-b {
     padding: 20px;
@@ -57,9 +58,9 @@
 }
 
 .login-b .circle{
-    width: 650px;
-    height: 650px;
-    background-color: #1ac8bd; 
+    width: 680px;
+    height: 680px;
+    background-color: #2f98ba; 
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -75,20 +76,24 @@
 .circle .label{
     width: 100%;
     text-align: start;
-    color: #000;
+    color: #ffffff;
     font-size: 24px;
+    font-weight: bold;
 }
 
 button {
-    width: 100%;
-    padding: 10px;
-    background-color: #13a097;
-    color: white;
+    width: auto;
+    padding: 12px 32px;
+    background-color: white;
+    color: #2f98ba;
+    font-weight: bold;
+    font-size: 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #118594;
+    background-color: white;
+    ;
 }

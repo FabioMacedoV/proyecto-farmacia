@@ -1,6 +1,6 @@
 <header class="header">
     <div class="logo">
-        <img src="<?= URL . rutaImg . "/logo-farmacia.jpg" ?>" alt="Logo NickyFarma">
+        <img src="<?= URL . rutaImg . "/logo-nav.png" ?>" alt="Logo NickyFarma">
     </div>
 
     <nav>
@@ -14,6 +14,6 @@
     </nav>
 
     <div>
-        <i class="fa fa-user" aria-hidden="true"></i>Usuario 001
+        <i class="fa fa-user" aria-hidden="true"></i> Usuario 001
     </div>
 </header>

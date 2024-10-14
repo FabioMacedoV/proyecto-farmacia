@@ -10,7 +10,7 @@
 
 /** Barra de navegación **/
 .header{
-    background-color: #1ac8bd;
+    background-color: #2f98ba;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -75,7 +75,7 @@
     color: #000;
     text-align: center;
     padding: 20px;
-    background-color: #e6e6e6;
+    background-color: #2f98ba;
 }
 
 .form-botones .boton-registrar button{

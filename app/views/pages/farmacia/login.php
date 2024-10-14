@@ -2,25 +2,26 @@
 
 <header class="header">
     <div class="logo">
-        <img src="<?= URL . rutaImg . "/logo-farmacia.jpg" ?>" alt="Logo NickyFarma">
+        <img src="<?= URL . rutaImg . "/logo-nav.png" ?>" alt="Logo NickyFarma">
     </div>
 </header>
 
 <div class="login-container">
     <div class="row">
         <div class="col">
+
             <div class="row">
                 <div class="login-text">
-                    <h2>Somos NickyMedic</h2>
-                    <p>“Más salud al menor precio”</p>
+                    <h2>Login NickyMedic</h2>
                 </div>
             </div>
 
             <div class="row">
                 <div class="login-image">
-                    <img src="<?= URL . rutaImg . "/imagen-categoria.jpg" ?>" alt="Logo NickyFarma" class="image-placeholder">
+                    <img src="<?= URL . rutaImg . "/login-img.png" ?>" alt="Logo NickyFarma" class="image-placeholder">
                 </div>
             </div>
+            
         </div>
 
         <div class="col">
@@ -37,7 +38,8 @@
                                 <label class="label" for="password">Contraseña:</label>
                                 <input class="form-control" type="password" id="password" name="password" required>
                             </div>
-                            <button type="submit">Ingresar</button>
+                            <a href="<?= URL . "/mantenimiento/inicio" ?>" class="boton"><button><i class="fa-solid fa-door-open"></i> Ingresar</a>
+
                         </form>
                     </div>
                 </div>
