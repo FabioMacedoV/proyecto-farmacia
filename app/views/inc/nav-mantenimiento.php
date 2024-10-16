@@ -6,10 +6,11 @@
     <nav>
         <ul class="nav-links">
             <li><a href="#">Orden</a></li>
-            <li><a href="#">Ventas</a></li>
+            <li><a href="<?= URL . "/mantenimiento/ventas" ?>">Ventas</a></li>
             <li><a href="<?= URL . "/mantenimiento/empleado" ?>">Empleado</a></li>
-            <li><a href="#">Clientes</a></li>
-            <li><a href="#">Productos</a></li>
+            <li><a href="<?= URL . "/mantenimiento/clientes" ?>">Clientes</a></li>
+            <li><a href="<?= URL . "/mantenimiento/producto" ?>">Productos</a></li>
+            <li><a href="<?= URL . "/mantenimiento/inventario" ?>">Inventario</a></li>
         </ul>
     </nav>
 
