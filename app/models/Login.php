@@ -11,16 +11,28 @@ class Login extends Control{
 
     public function loguearse($usuario, $contrasenia){
 
-        $this->db->conectar();
-        $resp = $this->db->prepare("EXEC [dbo].[sp_login] @nombre = $usuario, @contrasenia= $contrasenia");
-        $resp->execute();
+        $sql = "EXEC [dbo].[sp_login] @nombre = :usuario, @contrasenia = :contrasenia";
 
-        if($resp -> fetch(PDO::FETCH_OBJ) != 0){
+        $this->db->conectar();
+        $stmt = $this->db->prepare($sql);
+
+        // Enlazar los parámetros de entrada
+        $stmt->bindParam(':usuario', $usuario, PDO::PARAM_STR);
+        $stmt->bindParam(':contrasenia', $contrasenia, PDO::PARAM_STR);
+
+        // Ejecutar el procedimiento almacenado
+        $stmt->execute();
+
+        // Capturar el valor devuelto
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $resp = $result;
+
+        // Verificar el valor de retorno
+        if ($resp != 0) {
             return true;
-        }else{
+        } else {
             return false;
         }
-
     }
 
 }
