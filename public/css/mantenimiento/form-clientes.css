@@ -1,0 +1,111 @@
+/** Especial **/
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.col{
+    padding: 10px;
+}
+
+/** Barra de navegación **/
+.header{
+    background-color: #2f98ba;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding: 5px 10%;
+}
+
+.header .logo{
+    cursor: pointer;
+}
+
+.header .logo img{
+    height: 70px;
+    width: auto;
+    transition: all 0.3s;
+}
+
+.header .logo img:hover{
+    transform: scale(1.2);
+}
+
+.header .nav-links{
+    list-style: none;
+
+}
+
+.header .nav-links li{
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.header .nav-links li:hover{
+    transform: scale(1.1);
+}
+
+.header .nav-links a{
+    font-size: 700;
+    color: #fff;
+    text-decoration: none;
+
+}
+
+.header .nav-links li a:hover{
+    color: #159189;
+}
+
+/** Titulo empleado **/
+
+.title-empleado{
+    width: 100%;
+    color: #000;
+    text-align: center;
+    padding: 40px;
+}
+
+.form-persona{
+    padding: 10px;
+}
+
+.form-contrato .title-form-contrato{
+    width: 100%;
+    color: #000;
+    text-align: center;
+    padding: 20px;
+    background-color: #2f98ba;
+}
+
+.form-botones .boton-registrar button{
+    font-weight: 600;
+    color: #ffffff;
+    padding: 9px 25px;
+    background-color: #3de366;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.form-botones .boton-registrar button:hover{
+    background-color: #33c36f;
+    transform: scale(1.1);
+}
+
+.form-botones .boton-cancelar button{
+    font-weight: 600;
+    color: #ffffff;
+    padding: 9px 25px;
+    background-color: #adadad;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.form-botones .boton-cancelar button:hover{
+    background-color: #7d7d7d;
+    transform: scale(1.1);
+}
