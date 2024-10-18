@@ -6,7 +6,7 @@ class Conexion extends Control{
 
     function conectar(){
 
-        $host = "D08KLAB102PC012\SQLEXPRESS";
+        $host = "DESKTOP-JOAJFTF\SQLSERVER";
         $dbname = "NickyMedicPrueba";
         $username = "usr_nickymedic";
         $password = "prueba12345";
