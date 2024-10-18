@@ -5,7 +5,6 @@
 
     <nav>
         <ul class="nav-links">
-            <li><a href="#">Orden</a></li>
             <li><a href="<?= URL . "/mantenimiento/ventas" ?>">Ventas</a></li>
             <li><a href="<?= URL . "/mantenimiento/empleado" ?>">Empleado</a></li>
             <li><a href="<?= URL . "/mantenimiento/clientes" ?>">Clientes</a></li>

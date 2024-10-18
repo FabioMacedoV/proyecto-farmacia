@@ -4,7 +4,7 @@
 
 <div class="container title-workers">
     <h2>Bienvenido al listado de Clientes</h2> 
-    <a href="<?= URL . "/mantenimiento/registro_empleado" ?>" class="boton"><button><i class="fa fa-plus" aria-hidden="true"></i> Agregar</button></a>
+    <a href="<?= URL . "/mantenimiento/registro_clientes" ?>" class="boton"><button><i class="fa fa-plus" aria-hidden="true"></i> Agregar</button></a>
 </div>
 
 <div class="container table-workers">

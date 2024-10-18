@@ -15,53 +15,58 @@
                     <input class="form-control" type="text" id="username" name="username" placeholder="Nombre" required>
                 </div>
                 <div class="col">
-                    <label class="label" for="username">DNI:</label>
+                    <label class="label" for="username">Categoria:</label>
                     <input class="form-control" type="text" id="username" name="username" placeholder="DNI" required>
                 </div>
                 <div class="col">
-                    <label class="label" for="username">DNI:</label>
+                    <label class="label" for="username">Marca:</label>
                     <input class="form-control" type="text" id="username" name="username" placeholder="DNI" required>
                 </div>
             </div>
 
             <div class="row">
+
                 <div class="col">
-                    <label class="label" for="username">Apellido Paterno:</label>
-                    <input class="form-control" type="text" id="username" name="username" placeholder="Apellido Paterno" required>
+                    <label class="label" for="username">Precio:</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">S/</span>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+
+                <div class="col">
+                    <label class="label" for="username">Stock:</label>
+                    <input class="form-control" type="number" id="username" name="username" min="0" placeholder="Apellido Materno" required>
                 </div>
                 <div class="col">
-                    <label class="label" for="username">Apellido Materno:</label>
-                    <input class="form-control" type="text" id="username" name="username" placeholder="Apellido Materno" required>
-                </div>
-                <div class="col">
-                    <label class="label" for="username">Apellido Materno:</label>
-                    <input class="form-control" type="text" id="username" name="username" placeholder="Apellido Materno" required>
+                    <label class="label" for="username">Fecha de Vencimiento:</label>
+                    <input class="form-control" type="date" id="username" name="username" placeholder="Apellido Materno" required>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-8">
-                    <label class="label" for="username">Dirección:</label>
-                    <input class="form-control" type="text" id="username" name="username" placeholder="Dirección" required>
+                    <label class="label" for="username">Descripción:</label>
+                    <textarea class="form-control" id="floatingTextarea" placeholder="Descripción" name="username" required></textarea>
                 </div>
                 <div class="col-4">
-                    <label class="label" for="username">Celular:</label>
-                    <input class="form-control" type="text" id="username" name="username" placeholder="Celular" required>
+                    <label class="label" for="username">N° de Unidades:</label>
+                    <input class="form-control" type="number" id="username" min="0" name="username" placeholder="Unidades" required>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col">
-                    <label class="label" for="username">Apellido Paterno:</label>
-                    <input class="form-control" type="text" id="username" name="username" placeholder="Apellido Paterno" required>
+                    <label class="label" for="username">Composición:</label>
+                    <textarea class="form-control" id="floatingTextarea" placeholder="Composición" name="username" required></textarea>
                 </div>
                 <div class="col">
-                    <label class="label" for="username">Apellido Materno:</label>
-                    <input class="form-control" type="text" id="username" name="username" placeholder="Apellido Materno" required>
+                    <label class="label" for="username">Indicaciones de uso:</label>
+                    <textarea class="form-control" id="floatingTextarea" placeholder="Indicaciones de uso" name="username" required></textarea>
                 </div>
                 <div class="col">
-                    <label class="label" for="username">Apellido Materno:</label>
-                    <input class="form-control" type="text" id="username" name="username" placeholder="Apellido Materno" required>
+                    <label class="label" for="username">Contradicciones de uso:</label>
+                    <textarea class="form-control" id="floatingTextarea" placeholder="Contradicciones de uso" name="username" required></textarea>
                 </div>
             </div>
 

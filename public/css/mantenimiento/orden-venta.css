@@ -62,17 +62,113 @@
     margin: 10px 20px;
 }
 
-.bordered-div {
+.bordered-div-tipo-producto {
     position: relative;
     border: 3px solid black;
     padding: 10px;
     display: inline-block;
     width: 100%;
     margin: 6px;
+    padding: 15px;
 }
 
-.bordered-div::before {
+.bordered-div-tipo-producto::before {
     content: "Tipo de Documento";
+    position: absolute;
+    top: -13px;
+    background-color: white;
+    padding: 0 5px;
+    font-size: 1.1rem;
+}
+
+.bordered-div-fecha-venta {
+    position: relative;
+    border: 3px solid black;
+    padding: 10px;
+    display: inline-block;
+    width: 100%;
+    margin: 6px;
+    padding: 15px;
+}
+
+.bordered-div-fecha-venta::before {
+    content: "Fecha de Venta";
+    position: absolute;
+    top: -13px;
+    background-color: white;
+    padding: 0 5px;
+    font-size: 1.1rem;
+}
+
+.bordered-div-cliente {
+    position: relative;
+    border: 3px solid black;
+    padding: 10px;
+    display: inline-block;
+    width: 100%;
+    margin: 6px;
+    padding: 15px;
+}
+
+.bordered-div-cliente::before {
+    content: "Cliente";
+    position: absolute;
+    top: -13px;
+    background-color: white;
+    padding: 0 5px;
+    font-size: 1.1rem;
+}
+
+.bordered-div-trabajador {
+    position: relative;
+    border: 3px solid black;
+    padding: 10px;
+    display: inline-block;
+    width: 100%;
+    margin: 6px;
+    padding: 15px;
+}
+
+.bordered-div-trabajador::before {
+    content: "Trabajador";
+    position: absolute;
+    top: -13px;
+    background-color: white;
+    padding: 0 5px;
+    font-size: 1.1rem;
+}
+
+.bordered-div-producto {
+    position: relative;
+    border: 3px solid black;
+    padding: 10px;
+    display: inline-block;
+    width: 100%;
+    margin: 6px;
+    padding: 15px;
+}
+
+.bordered-div-producto::before {
+    content: "Producto";
+    position: absolute;
+    top: -13px;
+    background-color: white;
+    padding: 0 5px;
+    font-size: 1.1rem;
+}
+
+.bordered-div-pago {
+    position: relative;
+    border: 3px solid black;
+    padding: 10px;
+    display: inline-block;
+    width: 100%;
+    margin: 6px;
+    padding: 15px;
+}
+
+.bordered-div-pago::before {
+    content: "Producto";
     position: absolute;
     top: -13px;
     background-color: white;
@@ -88,7 +184,7 @@
     width: 100%;
     color: #000;
     text-align: center;
-    padding: 40px;
+    padding: 25px;
 }
 
 .form-persona{
@@ -101,6 +197,12 @@
     text-align: center;
     padding: 20px;
     background-color: #2f98ba;
+}
+
+.form-botones-custom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .form-botones .boton-registrar button{
@@ -116,6 +218,22 @@
 
 .form-botones .boton-registrar button:hover{
     background-color: #33c36f;
+    transform: scale(1.1);
+}
+
+.form-botones-custom .boton-agregar button{
+    font-weight: 600;
+    color: #ffffff;
+    padding: 9px 25px;
+    background-color: #37cfcd;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.form-botones-custom .boton-agregar button:hover{
+    background-color: #2da8a5;
     transform: scale(1.1);
 }
 

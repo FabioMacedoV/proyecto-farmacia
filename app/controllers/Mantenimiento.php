@@ -109,6 +109,11 @@ class Mantenimiento extends Control{
         $datos = [
             'title' => 'Orden Venta',
             'css-ext' => '/css/mantenimiento/orden-venta.css',
+            'grid-productos'=> [],
+            'tipo-documento' => [
+                ["value" => 1, "label" => "Boleta"],
+                ["value" => 2, "label" => "Factura"],
+            ],
         ];
 
         $this->load_view('mantenimiento/orden-venta', $datos);

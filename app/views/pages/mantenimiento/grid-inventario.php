@@ -3,8 +3,7 @@
 <?php require_once APP . '/views/inc/nav-mantenimiento.php' ?>
 
 <div class="container title-workers">
-    <h2>Bienvenido al listado de Inventario</h2> 
-    <a href="<?= URL . "/mantenimiento/registro_empleado" ?>" class="boton"><button><i class="fa fa-plus" aria-hidden="true"></i> Agregar</button></a>
+    <h2>Bienvenido al listado de Inventario</h2>
 </div>
 
 <div class="container table-workers">
@@ -21,7 +20,7 @@
         <table class="table">
             <thead>
                 <tr style="text-align: center;">
-                    <th scope="col" style="width: 5%;">ID</th>
+                    <th scope="col" style="width: 10%;">ID</th>
                     <th scope="col" style="width: 25%;">Nombre</th>
                     <th scope="col" style="width: 15%;">Fecha de Ingreso</th>
                     <th scope="col" style="width: 15%;">Cantidad</th>
@@ -39,8 +38,6 @@
                     <td><?php echo $row['fecha_salida']; ?></td>
                     <td>
                         <a href="#" class="boton-visualizar"><button><i class="fa fa-eye" aria-hidden="true"></i></button></a>
-                        <a href="#" class="boton-editar"><button><i class="fa fa-pencil" aria-hidden="true"></i></button></a>
-                        <a href="#" class="boton-eliminar"><button><i class="fa fa-trash" aria-hidden="true"></i></button></a>
                     </td>
                 </tr>
                 <?php endforeach; ?>

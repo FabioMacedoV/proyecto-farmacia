@@ -71,7 +71,7 @@
             </div>
             <div class="col">
                 <label class="label" for="username">Inicio de Contrato:</label>
-                <input class="form-control" type="text" id="username" name="username" placeholder="Inicio Contrato" required>
+                <input class="form-control" type="date" id="username" name="username" placeholder="Inicio Contrato" required>
             </div>
         </div>
 
@@ -82,7 +82,7 @@
             </div>
             <div class="col">
                 <label class="label" for="username">Fin de Contrato:</label>
-                <input class="form-control" type="text" id="username" name="username" placeholder="Fin Contrato" required>
+                <input class="form-control" type="date" id="username" name="username" placeholder="Fin Contrato" required>
             </div>
         </div>
 

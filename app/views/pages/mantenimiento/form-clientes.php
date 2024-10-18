@@ -3,7 +3,7 @@
 <?php require_once APP . '/views/inc/nav-mantenimiento.php' ?>
 
 <div class="title-empleado">
-    <h1>Registro Empleado</h1>
+    <h1>Registro de Clientes</h1>
 </div>
 
 <div class="container">
