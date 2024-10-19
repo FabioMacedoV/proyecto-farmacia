@@ -26,14 +26,15 @@ class Mantenimiento extends Control{
 
     public function registro_empleado(){
 
+        $conexion = $this->load_model('Comun');
+        $roles = $conexion -> obtenerRoles();
+        $horarios = $conexion -> obtenerHorarios();
+
         $datos = [
             'title' => 'Registro Empleados',
             'css-ext' => '/css/mantenimiento/form-empleado.css',
-            'roles' => [
-                ["value" => 1, "label" => "Rol 1"],
-                ["value" => 2, "label" => "Rol 2"],
-                ["value" => 3, "label" => "Rol 3"],
-            ],
+            'roles' => $roles,
+            'horarios' => $horarios,
         ];
 
         $this->load_view('mantenimiento/form-empleado', $datos);
@@ -56,9 +57,16 @@ class Mantenimiento extends Control{
 
     public function registro_producto(){
 
+        $conexion = $this->load_model('Comun');
+        $categorias = $conexion -> obtenerCategorias();
+        $marcas = $conexion -> obtenerMarcas();
+
         $datos = [
             'title' => 'Registro Productos',
             'css-ext' => '/css/mantenimiento/form-producto.css',
+            'categorias' => $categorias,
+            'marcas' => $marcas,
+
         ];
 
         $this->load_view('mantenimiento/form-producto', $datos);
@@ -106,6 +114,9 @@ class Mantenimiento extends Control{
 
     public function orden_venta(){
 
+        $conexion = $this->load_model('Comun');
+        $productos = $conexion -> obtenerProductos();
+
         $datos = [
             'title' => 'Orden Venta',
             'css-ext' => '/css/mantenimiento/orden-venta.css',
@@ -114,6 +125,7 @@ class Mantenimiento extends Control{
                 ["value" => 1, "label" => "Boleta"],
                 ["value" => 2, "label" => "Factura"],
             ],
+            'productos' => $productos,
         ];
 
         $this->load_view('mantenimiento/orden-venta', $datos);

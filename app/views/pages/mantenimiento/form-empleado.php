@@ -59,6 +59,7 @@
         </div>
 
     </div>
+    
     <div class="col form-contrato">
         <div class="row title-form-contrato">
             <h2>DETALLES DE CONTRATO</h2>
@@ -78,7 +79,12 @@
         <div class="row">
             <div class="col">
                 <label class="label" for="username">Horario:</label>
-                <input class="form-control" type="text" id="username" name="username" placeholder="Horario" required>
+                <select class="form-select">
+                    <option value="0" selected>-- Seleccionar --</option>
+                    <?php foreach($datos['horarios'] as $rol): ?>
+                        <option value="<?php echo $rol['value']; ?>"><?php echo $rol['label']; ?></option>
+                    <?php endforeach; ?>
+                </select>
             </div>
             <div class="col">
                 <label class="label" for="username">Fin de Contrato:</label>

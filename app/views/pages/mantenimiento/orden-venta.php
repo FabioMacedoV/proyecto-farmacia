@@ -79,7 +79,12 @@
 
                             <div class="col">
                                 <label class="label" for="username">Producto:</label>
-                                <input class="form-control" type="text" id="username" name="username" placeholder="Producto" required>
+                                <select class="form-select">
+                                    <option value="0" selected>Seleccionar</option>
+                                    <?php foreach($datos['productos'] as $rol): ?>
+                                    <option value="<?php echo $rol['value']; ?>"><?php echo $rol['label']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
 
                             <div class="col">
