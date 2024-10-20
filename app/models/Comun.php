@@ -101,4 +101,21 @@ class Comun extends Control{
         return $result;
     }
 
+    public function graficoProductos(){
+
+        $sql = "EXEC [dbo].[sp_grafico_cantidad_producto]";
+        $this->db->conectar();
+
+        $stmt = $this->db->prepare($sql);
+
+        // Ejecutar el procedimiento almacenado
+        $stmt->execute();
+
+        $this->db->desconectar();
+
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
 }

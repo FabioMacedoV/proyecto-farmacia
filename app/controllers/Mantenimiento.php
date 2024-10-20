@@ -3,9 +3,13 @@
 class Mantenimiento extends Control{
 
     public function inicio(){
+        $conexion = $this->load_model("Comun");
+        $dataGrafico = $conexion -> graficoProductos(); 
+
         $datos = [
             'title' => 'Inicio',
             'css-ext' => '/css/mantenimiento/inicio.css',
+            'dataGraficos' => $dataGrafico,
         ];
 
         $this->load_view('mantenimiento/inicio', $datos);
