@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="<?= URL . rutaCssBase ?>">
 
     <?php if (isset($datos['css-ext'])) : ?>
-        <link rel="stylesheet" href="<?= URL.$datos['css-ext'] ?>">
+    <link rel="stylesheet" href="<?= URL.$datos['css-ext'] ?>">
     <?php endif; ?>
 
     <title><?= $datos['title'] ?></title>

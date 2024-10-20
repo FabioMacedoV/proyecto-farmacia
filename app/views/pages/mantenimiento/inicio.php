@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+} ?>
 
 <?php require_once APP . '/views/inc/header.php' ?>
 
