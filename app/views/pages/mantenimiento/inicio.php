@@ -1,12 +1,14 @@
+<?php session_start(); ?>
+
 <?php require_once APP . '/views/inc/header.php' ?>
 
 <?php require_once APP . '/views/inc/nav-mantenimiento.php' ?>
 
 <div class="title-dashboard">
-    <h2>Bienvenido, Usuario 001</h2>
+    <h2>Bienvenido, <?php echo $_SESSION['Usuario']; ?></h2>
 </div>
 
-<!-- <pre><?php print_r($datos["dataGraficos"]); ?></pre> -->
+<!-- <pre><?php print_r($datos["prueba"]); ?></pre> -->
 
 <div class="col-md-12">
     <div class="row">

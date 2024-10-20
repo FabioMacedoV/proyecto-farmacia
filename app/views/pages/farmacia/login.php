@@ -38,6 +38,11 @@
                                 <label class="label" for="password">Contraseña:</label>
                                 <input class="form-control" type="password" name="txtcontrasenia" id="txtcontrasenia" required>
                             </div>
+                            <?php if (isset($datos['mensaje'])) : ?>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>Error:</strong> Las credenciales no son correctas, por favor, intente nuevamente
+                            </div>
+                            <?php endif; ?>
                             <a href="<?= URL . "/mantenimiento/inicio" ?>" class="boton"><button><i class="fa-solid fa-door-open"></i> Ingresar</a>
 
                         </form>

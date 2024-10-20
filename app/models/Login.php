@@ -25,14 +25,8 @@ class Login extends Control{
 
         // Capturar el valor devuelto
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        $resp = $result;
 
-        // Verificar el valor de retorno
-        if ($resp != 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return $result;
     }
 
 }

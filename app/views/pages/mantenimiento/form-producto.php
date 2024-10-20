@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <?php require_once APP . '/views/inc/header.php' ?>
 
 <?php require_once APP . '/views/inc/nav-mantenimiento.php' ?>

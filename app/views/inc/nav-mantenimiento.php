@@ -5,6 +5,7 @@
 
     <nav>
         <ul class="nav-links">
+            <li><a href="<?= URL . "/mantenimiento/inicio" ?>">Inicio</a></li>
             <li><a href="<?= URL . "/mantenimiento/ventas" ?>">Ventas</a></li>
             <li><a href="<?= URL . "/mantenimiento/empleado" ?>">Empleado</a></li>
             <li><a href="<?= URL . "/mantenimiento/clientes" ?>">Clientes</a></li>
@@ -14,6 +15,6 @@
     </nav>
 
     <div>
-        <i class="fa fa-user" aria-hidden="true"></i> Usuario 001
+        <i class="fa fa-user" aria-hidden="true"></i> <?php echo $_SESSION['Usuario'] ?>
     </div>
 </header>
