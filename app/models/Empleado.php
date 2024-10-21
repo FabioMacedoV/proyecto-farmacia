@@ -122,6 +122,20 @@ class Empleado extends Control{
 
     }
 
+    public function eliminarEmpleado($id){
+        $sql = "EXEC [dbo].[sp_eliminar_empleado] @empleado_id = :id";
+
+        $this->db->conectar();
+
+        $stmt = $this->db->prepare($sql);
+
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        return true;
+    }
+
 
 
 }

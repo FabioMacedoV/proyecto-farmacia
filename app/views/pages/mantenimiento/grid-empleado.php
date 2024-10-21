@@ -39,9 +39,9 @@
                         <td><?php echo $row['cargo']; ?></td>
                         <td><?php echo $row['horario']; ?></td>
                         <td>
-                            <a href="#" class="boton-visualizar"><button><i class="fa fa-eye" aria-hidden="true"></i></button></a>
+                            <a href="<?= URL . "/mantenimiento/visualizar_empleado/".$row['empleado_id'] ?>" class="boton-visualizar"><button><i class="fa fa-eye" aria-hidden="true"></i></button></a>
                             <a href="<?= URL . "/mantenimiento/editar_empleado/".$row['empleado_id'] ?>" class="boton-editar"><button><i class="fa fa-pencil" aria-hidden="true"></i></button></a>
-                            <a href="#" class="boton-eliminar"><button><i class="fa fa-trash" aria-hidden="true"></i></button></a>
+                            <a class="boton-eliminar"><button onclick="confirmacionEliminar(<?php echo $row['empleado_id'] ?>)"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
                         </td>
                     </tr>
                     <?php endforeach; ?>

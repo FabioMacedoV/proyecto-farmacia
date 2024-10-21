@@ -108,7 +108,8 @@ class Mantenimiento extends Control{
         $resp = $modeloEmpleado->guardarEmpleado($data);
 
         if($resp){
-            $this->empleado();
+            header("Location: ".URL.'/mantenimiento/empleado');
+            exit();
         }
 
     }
@@ -149,8 +150,43 @@ class Mantenimiento extends Control{
         $resp = $modeloEmpleado->actualizarEmpleado($data);
 
         if($resp){
-            $this->empleado();
+            header("Location: ".URL.'/mantenimiento/empleado');
+            exit();
         }
+    }
+
+    public function eliminar_empleado($ID){
+        $modeloEmpleado = $this->load_model('Empleado');
+
+        $resp = $modeloEmpleado->eliminarEmpleado($ID);
+
+        if($resp){
+            header("Location: ".URL.'/mantenimiento/empleado');
+            exit();
+        }
+    }
+
+    public function visualizar_empleado($ID){
+        $conexion = $this->load_model('Comun');
+        $modeloEmpleado = $this->load_model('Empleado');
+
+        $roles = $conexion -> obtenerRoles();
+        $horarios = $conexion -> obtenerHorarios();
+        $lista = $modeloEmpleado->obtenerEmpleado($ID);
+
+        $empleado = $lista[0];
+
+        $datos = [
+            'title' => 'Actualizar Empleados',
+            'css-ext' => '/css/mantenimiento/form-empleado.css',
+            'js-ext'=>'/js/empleado.js',
+            'tipoRegistro' => 2,
+            'empleado' => $empleado,
+            'roles' => $roles,
+            'horarios' => $horarios,
+        ];
+
+        $this->load_view('mantenimiento/form-empleado', $datos);
     }
 
     public function producto(){

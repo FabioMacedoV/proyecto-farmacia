@@ -39,3 +39,11 @@ function regresarRegistro(){
     document.getElementById('dateFinContrato').value = null;
     window.history.back();
 }
+
+function confirmacionEliminar(id){
+    if (confirm("¿Estás seguro de que quieres eliminar el registro?")) {
+        window.location.href = 'eliminar_empleado/' + id;
+    } else {
+        
+    }
+}

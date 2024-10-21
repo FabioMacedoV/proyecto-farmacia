@@ -7,6 +7,7 @@
 <?php 
     if($datos["tipoRegistro"] == 0){ $titulo = "Registro Empleado"; $url = "/mantenimiento/guardar_empleado";}
     if($datos["tipoRegistro"] == 1){ $titulo = "Actualizar Empleado"; $url = "/mantenimiento/actualizar_empleado";}
+    if($datos["tipoRegistro"] == 2){ $titulo = "Visualizar Empleado"; $url = "/mantenimiento/empleado";}
 ?>
 
 <div class="title-empleado">
@@ -22,23 +23,23 @@
             <div class="row">
                 <div class="col">
                     <label class="label" for="username">Nombre:</label>
-                    <input class="form-control" type="text" id="txtNombre" name="txtNombre" placeholder="Nombre" value="<?php echo(isset($datos["empleado"]['nombre']) ? $datos["empleado"]['nombre'] : ''); ?>" required>
+                    <input class="form-control" type="text" id="txtNombre" name="txtNombre" placeholder="Nombre" value="<?php echo(isset($datos["empleado"]['nombre']) ? $datos["empleado"]['nombre'] : ''); ?>" <?php echo($datos["tipoRegistro"] == 2 ? 'disabled' : '')?> required>
                 </div>
                 <div class="col">
                     <label class="label" for="username">DNI:</label>
-                    <input class="form-control" type="text" id="txtDni" name="txtDni" placeholder="DNI" value="<?php echo(isset($datos["empleado"]['dni']) ? $datos["empleado"]['dni'] : ''); ?>" required>
+                    <input class="form-control" type="text" id="txtDni" name="txtDni" placeholder="DNI" value="<?php echo(isset($datos["empleado"]['dni']) ? $datos["empleado"]['dni'] : ''); ?>" <?php echo($datos["tipoRegistro"] == 2 ? 'disabled' : '')?> required>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col">
                     <label class="label" for="username">Apellidos:</label>
-                    <input class="form-control" type="text" id="txtApellidos" name="txtApellidos" placeholder="Apellidos" value="<?php echo(isset($datos["empleado"]['apellidos']) ? $datos["empleado"]['apellidos'] : ''); ?>"  required>
+                    <input class="form-control" type="text" id="txtApellidos" name="txtApellidos" placeholder="Apellidos" value="<?php echo(isset($datos["empleado"]['apellidos']) ? $datos["empleado"]['apellidos'] : ''); ?>" <?php echo($datos["tipoRegistro"] == 2 ? 'disabled' : '')?> required>
                 </div>
 
                 <div class="col">
                     <label class="label" for="username">Fecha de Nacimiento:</label>
-                    <input class="form-control" type="date" id="txtFechaNacimiento" name="txtFechaNacimiento" value="<?php echo(isset($datos["empleado"]['fecha_nacimiento']) ? $datos["empleado"]['fecha_nacimiento'] : ''); ?>" required>
+                    <input class="form-control" type="date" id="txtFechaNacimiento" name="txtFechaNacimiento" value="<?php echo(isset($datos["empleado"]['fecha_nacimiento']) ? $datos["empleado"]['fecha_nacimiento'] : ''); ?>" <?php echo($datos["tipoRegistro"] == 2 ? 'disabled' : '')?> required>
                 </div>
 
             </div>
@@ -46,22 +47,22 @@
             <div class="row">
                 <div class="col">
                     <label class="label" for="username">Dirección:</label>
-                    <input class="form-control" type="text" id="txtDireccion" name="txtDireccion" placeholder="Dirección" value="<?php echo(isset($datos["empleado"]['direccion']) ? $datos["empleado"]['direccion'] : ''); ?>" required>
+                    <input class="form-control" type="text" id="txtDireccion" name="txtDireccion" placeholder="Dirección" value="<?php echo(isset($datos["empleado"]['direccion']) ? $datos["empleado"]['direccion'] : ''); ?>" <?php echo($datos["tipoRegistro"] == 2 ? 'disabled' : '')?> required>
                 </div>
                 <div class="col">
                     <label class="label" for="username">Celular:</label>
-                    <input class="form-control" type="text" id="txtCelular" name="txtCelular" placeholder="Celular" value="<?php echo(isset($datos["empleado"]['celular']) ? $datos["empleado"]['celular'] : ''); ?>" required>
+                    <input class="form-control" type="text" id="txtCelular" name="txtCelular" placeholder="Celular" value="<?php echo(isset($datos["empleado"]['celular']) ? $datos["empleado"]['celular'] : ''); ?>" <?php echo($datos["tipoRegistro"] == 2 ? 'disabled' : '')?> required>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col">
                     <label class="label" for="username">Correo:</label>
-                    <input class="form-control" type="email" id="txtCorreo" name="txtCorreo" placeholder="Correo" value="<?php echo(isset($datos["empleado"]['email']) ? $datos["empleado"]['email'] : ''); ?>" required>
+                    <input class="form-control" type="email" id="txtCorreo" name="txtCorreo" placeholder="Correo" value="<?php echo(isset($datos["empleado"]['email']) ? $datos["empleado"]['email'] : ''); ?>" <?php echo($datos["tipoRegistro"] == 2 ? 'disabled' : '')?> required>
                 </div>
                 <div class="col">
                     <label class="label" for="username">Rol:</label>
-                    <select class="form-select" id="selectRol" name="selectRol">
+                    <select class="form-select" id="selectRol" name="selectRol" <?php echo($datos["tipoRegistro"] == 2 ? 'disabled' : '')?>>
                         <option value="0" <?php echo (isset($datos["empleado"]['rol']) && $datos["empleado"]['rol'] == 0 ? 'selected' : '') ?>>-- Seleccionar --</option>
                         <?php foreach($datos['roles'] as $rol): ?> 
                             <option value="<?php echo $rol['value']; ?>" <?php echo (isset($datos["empleado"]['rol']) && $datos["empleado"]['rol'] == $rol['value'] ? 'selected' : '') ?> ><?php echo $rol['label']; ?></option>
@@ -79,18 +80,18 @@
             <div class="row">
                 <div class="col">
                     <label class="label" for="username">Salario:</label>
-                    <input class="form-control" type="text" id="txtSalario" name="txtSalario" placeholder="Salario" value="<?php echo(isset($datos["empleado"]['salario']) ? $datos["empleado"]['salario'] : ''); ?>" required>
+                    <input class="form-control" type="text" id="txtSalario" name="txtSalario" placeholder="Salario" value="<?php echo(isset($datos["empleado"]['salario']) ? $datos["empleado"]['salario'] : ''); ?>" <?php echo($datos["tipoRegistro"] == 2 ? 'disabled' : '')?> required>
                 </div>
                 <div class="col">
                     <label class="label" for="username">Inicio de Contrato:</label>
-                    <input class="form-control" type="date" id="dateIniContrato" name="dateIniContrato" value="<?php echo(isset($datos["empleado"]['inicio_contrato']) ? $datos["empleado"]['inicio_contrato'] : ''); ?>" required>
+                    <input class="form-control" type="date" id="dateIniContrato" name="dateIniContrato" value="<?php echo(isset($datos["empleado"]['inicio_contrato']) ? $datos["empleado"]['inicio_contrato'] : ''); ?>" <?php echo($datos["tipoRegistro"] == 2 ? 'disabled' : '')?> required>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col">
                     <label class="label" for="username">Horario:</label>
-                    <select class="form-select" id="selectHorario" name="selectHorario">
+                    <select class="form-select" id="selectHorario" name="selectHorario" <?php echo($datos["tipoRegistro"] == 2 ? 'disabled' : '')?>>
                         <option value="0" <?php echo (isset($datos["empleado"]['horario']) && $datos["empleado"]['horario'] == 0 ? 'selected' : '') ?>>-- Seleccionar --</option>
                         <?php foreach($datos['horarios'] as $rol): ?>
                         <option value="<?php echo $rol['value']; ?>" <?php echo (isset($datos["empleado"]['horario']) && $datos["empleado"]['horario'] == $rol['value'] ? 'selected' : '') ?> ><?php echo $rol['label']; ?></option>
@@ -99,7 +100,7 @@
                 </div>
                 <div class="col">
                     <label class="label" for="username">Fin de Contrato:</label>
-                    <input class="form-control" type="date" id="dateFinContrato" name="dateFinContrato" value="<?php echo(isset($datos["empleado"]['final_contrato']) ? $datos["empleado"]['final_contrato'] : ''); ?>">
+                    <input class="form-control" type="date" id="dateFinContrato" name="dateFinContrato" value="<?php echo(isset($datos["empleado"]['final_contrato']) ? $datos["empleado"]['final_contrato'] : ''); ?>" <?php echo($datos["tipoRegistro"] == 2 ? 'disabled' : '')?>>
                 </div>
             </div>
 
@@ -107,7 +108,7 @@
                 <div class="col" style="text-align: end;">
                 <?php if ($datos["tipoRegistro"] == 0) : ?>
                     <a class="boton-registrar"><button><i class="fa-solid fa-floppy-disk"></i> Registrar</button></a>
-                <?php else: ?>
+                <?php elseif($datos["tipoRegistro"] == 1): ?>
                     <a class="boton-registrar"><button><i class="fa-solid fa-floppy-disk"></i> Actualizar</button></a>
                 <?php endif; ?>
                 </div>
