@@ -10,15 +10,17 @@
     <h2>Bienvenido, <?php echo $_SESSION['Usuario']; ?></h2>
 </div>
 
-<!-- <pre><?php print_r($datos["prueba"]); ?></pre> -->
-
-<div class="col-md-12">
-    <div class="row">
-        <div class="col-md-6">
-            <canvas id="myChart" width="400" height="200"></canvas>
-        </div>
-        <div class="col-md-6">
-            <canvas id="donut" width="400" height="200"></canvas>
+<div class="contenedor-graficos">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6 grafico-template">
+                <h3>Grafico de barras:</h3>
+                <canvas id="myChart" width="400" height="200"></canvas>
+            </div>
+            <div class="col-md-6 grafico-template">
+                <h3>Grafico circular:</h3>
+                <canvas id="donut" width="400" height="200"></canvas>
+            </div>
         </div>
     </div>
 </div>

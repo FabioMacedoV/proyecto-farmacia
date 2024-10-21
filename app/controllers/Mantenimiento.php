@@ -16,13 +16,17 @@ class Mantenimiento extends Control{
     }
 
     public function empleado(){
+        $nombre = isset($_GET['nombre']) ? $_GET['nombre'] : ''; 
+
+        $conexion = $this->load_model("Empleado");
+
+        $grilla = $conexion->obtenerGrilla($nombre);
+
         $datos = [
             'title' => 'Empleados',
             'css-ext' => '/css/mantenimiento/grid-empleado.css',
-            'grid' => [
-                ["id" => "T001", "nombre" => "Nombre1", "edad" => 45, "cargo" => "empleado", "salario" => "4500"],
-                ["id" => "T002", "nombre" => "Nombre2", "edad" => 23, "cargo" => "cajero", "salario" => "2500"],
-            ]
+            'js-ext'=>'/js/empleado.js',
+            'grid' => $grilla,
         ];
 
         $this->load_view('mantenimiento/grid-empleado', $datos);
@@ -37,11 +41,75 @@ class Mantenimiento extends Control{
         $datos = [
             'title' => 'Registro Empleados',
             'css-ext' => '/css/mantenimiento/form-empleado.css',
+            'js-ext'=>'/js/empleado.js',
+            'tipoRegistro' => 0,
             'roles' => $roles,
             'horarios' => $horarios,
         ];
 
         $this->load_view('mantenimiento/form-empleado', $datos);
+    }
+
+    public function editar_empleado($ID){
+
+        $conexion = $this->load_model('Comun');
+        $modeloEmpleado = $this->load_model('Empleado');
+
+        $roles = $conexion -> obtenerRoles();
+        $horarios = $conexion -> obtenerHorarios();
+        $lista = $modeloEmpleado->obtenerEmpleado($ID);
+
+        $empleado = $lista[0];
+
+        $datos = [
+            'title' => 'Actualizar Empleados',
+            'css-ext' => '/css/mantenimiento/form-empleado.css',
+            'js-ext'=>'/js/empleado.js',
+            'tipoRegistro' => 1,
+            'empleado' => $empleado,
+            'roles' => $roles,
+            'horarios' => $horarios,
+        ];
+
+        $this->load_view('mantenimiento/form-empleado', $datos);
+    }
+
+    public function guardar_empleado(){
+        $modeloEmpleado = $this->load_model('Empleado');
+
+        $nombre = trim($_POST['txtNombre']);
+        $dni = trim($_POST['txtDni']);
+        $apellidos = trim($_POST['txtApellidos']);
+        $fechaNacimiento = trim($_POST['txtFechaNacimiento']);
+        $direccion = trim($_POST['txtDireccion']);
+        $celular = trim($_POST['txtCelular']);
+        $correo = trim($_POST['txtCorreo']);
+        $rol = trim($_POST['selectRol']);
+        $salario = trim($_POST['txtSalario']);
+        $inicioContrato = trim($_POST['dateIniContrato']);
+        $horario = trim($_POST['selectHorario']);
+        $finContrato = trim($_POST['dateFinContrato']);
+
+        $data = [
+            'nombre' => $nombre,
+            'dni' => $dni,
+            'apellidos' => $apellidos,
+            'fechaNacimiento' => $fechaNacimiento,
+            'direccion' => $direccion,
+            'celular' => $celular,
+            'correo' => $correo,
+            'rol' => (int)$rol,
+            'salario' => (int)$salario,
+            'inicioContrato' => $inicioContrato,
+            'horario' => (int)$horario,
+            'finContrato' => $finContrato
+        ];
+
+        $resp = $modeloEmpleado->guardarEmpleado($data);
+
+        if($resp){
+            $this->empleado();
+        }
 
     }
 

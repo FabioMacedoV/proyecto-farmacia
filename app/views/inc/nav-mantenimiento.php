@@ -24,6 +24,14 @@
     </nav>
 
     <div>
-        <i class="fa fa-user" aria-hidden="true"></i> <?php echo $_SESSION['Usuario'] ?>
+    <li class="nav-item dropdown" style="list-style-type: none;">
+        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa fa-user" aria-hidden="true"></i> <?php echo $_SESSION['Usuario'] ?>
+        </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+            </ul>
+        </li>
+        
     </div>
 </header>

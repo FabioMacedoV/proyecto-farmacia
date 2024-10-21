@@ -52,3 +52,18 @@
 .header .nav-links li a:hover{
     color: #159189;
 }
+
+.title-dashboard h2{
+    font-size: 40px;
+    color: #000;
+    margin: 20px;
+}
+
+.contenedor-graficos{
+    margin: 15px;
+    margin-bottom: 80px;
+}
+
+.grafico-template{
+    height: 450px;
+}
