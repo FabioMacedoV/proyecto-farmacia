@@ -43,7 +43,7 @@
                                 <strong>Error:</strong> Las credenciales no son correctas, por favor, intente nuevamente
                             </div>
                             <?php endif; ?>
-                            <a href="<?= URL . "/mantenimiento/inicio" ?>" class="boton"><button><i class="fa-solid fa-door-open"></i> Ingresar</a>
+                            <a class="boton"><button><i class="fa-solid fa-door-open"></i> Ingresar</a>
 
                         </form>
                     </div>

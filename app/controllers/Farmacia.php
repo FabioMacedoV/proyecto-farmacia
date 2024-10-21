@@ -36,27 +36,50 @@ class Farmacia extends Control{
         $resp = $modelo->loguearse($usuario, $contrasenia);
         $dataGrafico = $conexion -> graficoProductos();
 
-        if($resp['confirmacion'] == 1){
-            session_start();
 
-            $_SESSION['IdUsuario'] = $resp['id_usuario'];
-            $_SESSION['Usuario'] = $resp['nombre_usuario'];
-            $_SESSION['Tipousuario'] = $resp['tipo_usuario'];
-
-            $datos = [
-                'title' => 'Inicio',
-                'css-ext' => '/css/mantenimiento/inicio.css',
-                'dataGraficos' => $dataGrafico,
-            ];
-            
-            $this->load_view('mantenimiento/inicio', $datos);
-        }else{
-            $this->login("Error");
+        if((int)$resp['confirmacion'] != 1 ){
+            return $this->login("Error");
         }
+
+        if((int)$resp['id_usuario'] == 0){
+            return $this->login("Error");
+        }
+
+        if($resp['nombre_usuario'] == ''){
+            return $this->login("Error");
+        }
+
+        if($resp['tipo_usuario'] < 1){
+            return $this->login("Error");
+        }
+
+        session_start();
+
+        $_SESSION['IdUsuario'] = $resp['id_usuario'];
+        $_SESSION['Usuario'] = $resp['nombre_usuario'];
+        $_SESSION['Tipousuario'] = $resp['tipo_usuario'];
+
+        $datos = [
+            'title' => 'Inicio',
+            'css-ext' => '/css/mantenimiento/inicio.css',
+            'dataGraficos' => $dataGrafico,
+        ];
+
+        $this->load_view('mantenimiento/inicio', $datos);
     }
 
     public function cerrar_sesion(){
         session_start();
+        $_SESSION = array();
+
+        if (ini_get("session.use_cookies")) {
+            $params = session_get_cookie_params();
+            setcookie(session_name(), '', time() - 42000,
+                $params["path"], $params["domain"],
+                $params["secure"], $params["httponly"]
+            );
+        }
+
         session_destroy();
         $this->login();
     }

@@ -5,8 +5,8 @@
 <?php require_once APP . '/views/inc/nav-mantenimiento.php' ?>
 
 <?php 
-    if($datos["tipoRegistro"] == 0){ $titulo = "Registro Empleado"; $url = URL . "/mantenimiento/guardar_empleado";}
-    if($datos["tipoRegistro"] == 1){ $titulo = "Actualizar Empleado"; $url = URL . "/mantenimiento/actualizar_empleado";}
+    if($datos["tipoRegistro"] == 0){ $titulo = "Registro Empleado"; $url = "/mantenimiento/guardar_empleado";}
+    if($datos["tipoRegistro"] == 1){ $titulo = "Actualizar Empleado"; $url = "/mantenimiento/actualizar_empleado";}
 ?>
 
 <div class="title-empleado">
@@ -15,7 +15,7 @@
 
 <!-- <pre><?php print_r($datos["empleado"]); ?></pre> -->
 
-<form action="<?php echo $url ?>" method="post">
+<form action="<?= URL . $url ?>"  method="post">
     <input type="hidden" id="idEmpleado" name="idEmpleado" value="<?php echo(isset($datos["empleado"]['empleado_id']) ? $datos["empleado"]['empleado_id'] : 0); ?>">
     <div class="row">
         <div class="col form-persona">
@@ -99,17 +99,27 @@
                 </div>
                 <div class="col">
                     <label class="label" for="username">Fin de Contrato:</label>
-                    <input class="form-control" type="date" id="dateFinContrato" name="dateFinContrato" value="<?php echo(isset($datos["empleado"]['final_contrato']) ? $datos["empleado"]['final_contrato'] : ''); ?>" required>
+                    <input class="form-control" type="date" id="dateFinContrato" name="dateFinContrato" value="<?php echo(isset($datos["empleado"]['final_contrato']) ? $datos["empleado"]['final_contrato'] : ''); ?>">
                 </div>
             </div>
 
             <div class="row form-botones">
                 <div class="col" style="text-align: end;">
-                    <a href="#" class="boton-registrar"><button><i class="fa-solid fa-floppy-disk"></i> Registrar</button></a>
+                <?php if ($datos["tipoRegistro"] == 0) : ?>
+                    <a class="boton-registrar"><button><i class="fa-solid fa-floppy-disk"></i> Registrar</button></a>
+                <?php else: ?>
+                    <a class="boton-registrar"><button><i class="fa-solid fa-floppy-disk"></i> Actualizar</button></a>
+                <?php endif; ?>
                 </div>
+
                 <div class="col">
+                <?php if ($datos["tipoRegistro"] == 0) : ?>
                     <a class="boton-cancelar"><button onclick="cancelarRegistro()"><i class="fa-solid fa-ban"></i> Cancelar</button></a>
+                <?php else: ?>
+                    <a class="boton-cancelar"><button onclick="regresarRegistro()"><i class="fa-solid fa-share"></i> Regresar</button></a>
+                <?php endif; ?>
                 </div>
+
             </div>
         </div>
     </div>

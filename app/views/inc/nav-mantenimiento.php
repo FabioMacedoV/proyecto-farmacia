@@ -29,7 +29,7 @@
             <i class="fa fa-user" aria-hidden="true"></i> <?php echo $_SESSION['Usuario'] ?>
         </a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                <li><a class="dropdown-item" href="<?= URL . '/farmacia/cerrar_sesion'  ?>">Cerrar Sesión</a></li>
             </ul>
         </li>
         

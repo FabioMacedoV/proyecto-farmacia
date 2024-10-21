@@ -9,8 +9,6 @@
     <a href="<?= URL . "/mantenimiento/registro_empleado" ?>" class="boton"><button><i class="fa fa-plus" aria-hidden="true"></i> Agregar</button></a>
 </div>
 
-<!-- <pre><?php print_r($datos["data"]); ?></pre> -->
-
 <div class="container table-workers">
     <div class="nav-table">
         <h3>Consultar empleado: </h3>

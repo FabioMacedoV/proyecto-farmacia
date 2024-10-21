@@ -113,6 +113,46 @@ class Mantenimiento extends Control{
 
     }
 
+    public function actualizar_empleado(){
+        $modeloEmpleado = $this->load_model('Empleado');
+
+        $id = trim($_POST['idEmpleado']);
+        $nombre = trim($_POST['txtNombre']);
+        $dni = trim($_POST['txtDni']);
+        $apellidos = trim($_POST['txtApellidos']);
+        $fechaNacimiento = trim($_POST['txtFechaNacimiento']);
+        $direccion = trim($_POST['txtDireccion']);
+        $celular = trim($_POST['txtCelular']);
+        $correo = trim($_POST['txtCorreo']);
+        $rol = trim($_POST['selectRol']);
+        $salario = trim($_POST['txtSalario']);
+        $inicioContrato = trim($_POST['dateIniContrato']);
+        $horario = trim($_POST['selectHorario']);
+        $finContrato = trim($_POST['dateFinContrato']);
+
+        $data = [
+            'id' => (int)$id,
+            'nombre' => $nombre,
+            'dni' => $dni,
+            'apellidos' => $apellidos,
+            'fechaNacimiento' => $fechaNacimiento,
+            'direccion' => $direccion,
+            'celular' => $celular,
+            'correo' => $correo,
+            'rol' => (int)$rol,
+            'salario' => (int)$salario,
+            'inicioContrato' => $inicioContrato,
+            'horario' => (int)$horario,
+            'finContrato' => $finContrato
+        ];
+
+        $resp = $modeloEmpleado->actualizarEmpleado($data);
+
+        if($resp){
+            $this->empleado();
+        }
+    }
+
     public function producto(){
 
         $datos = [

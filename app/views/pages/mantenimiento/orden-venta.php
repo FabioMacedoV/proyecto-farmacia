@@ -104,14 +104,14 @@
 
                             <div class="col">
                                 <label class="label" for="username">Stock:</label>
-                                <input class="form-control" type="text" id="username" name="username" placeholder="Stock" required>
+                                <input class="form-control" type="text" id="username" name="username" placeholder="Stock" disabled>
                             </div>
 
                             <div class="col">
                                 <label class="label" for="username">Precio Unitario:</label>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1">S/</span>
-                                    <input type="text" class="form-control" placeholder="Username">
+                                    <input type="text" class="form-control" placeholder="Precio" disabled>
                                 </div>
                             </div>
 
@@ -138,29 +138,30 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
+                                <th scope="col" style="width: 25%;">Producto</th>
+                                <th scope="col" style="width: 45%;">Descripcion</th>
+                                <th scope="col" style="width: 15%;">Cantidad</th>
+                                <th scope="col" style="width: 15%;">Precio</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
+                                <td>Pañales</td>
+                                <td>Paquete de pañales Huggies XG</td>
+                                <td>1</td>
+                                <td>S/14.90</td>
                             </tr>
                             <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
+                                <td>Paracetamol</td>
+                                <td>Blister de paracetamol de 500g</td>
+                                <td>3</td>
+                                <td>S/2.90</td>
                             </tr>
                             <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
+                                <td>Shampoo</td>
+                                <td>shampoo Head and Shoulders de 375ml</td>
+                                <td>1</td>
+                                <td>S/18.50</td>
                             </tr>
                         </tbody>
                     </table>
