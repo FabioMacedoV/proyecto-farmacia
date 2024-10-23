@@ -16,11 +16,11 @@ class Farmacia extends Control{
 
         $datos = [
             "title" => "Login",
-            "css-ext" => '/css/farmacia/login.css',
+            "css-ext" => '/css/login/login.css',
             "mensaje" => $mensaje
         ];
 
-        $this->load_view("farmacia/login", $datos);
+        $this->load_view("login/login", $datos);
     }
 
 

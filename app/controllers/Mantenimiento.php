@@ -2,7 +2,7 @@
 
 class Mantenimiento extends Control{
 
-    public function inicio(){
+    public function inicio(){ 
         $conexion = $this->load_model("Comun");
         $dataGrafico = $conexion -> graficoProductos(); 
 
@@ -24,12 +24,12 @@ class Mantenimiento extends Control{
 
         $datos = [
             'title' => 'Empleados',
-            'css-ext' => '/css/mantenimiento/grid-empleado.css',
+            'css-ext' => '/css/mantenimiento/grid-view.css',
             'js-ext'=>'/js/empleado.js',
             'grid' => $grilla,
         ];
 
-        $this->load_view('mantenimiento/grid-empleado', $datos);
+        $this->load_view('mantenimiento/empleado/grid-empleado', $datos);
     }
 
     public function registro_empleado(){
@@ -47,7 +47,7 @@ class Mantenimiento extends Control{
             'horarios' => $horarios,
         ];
 
-        $this->load_view('mantenimiento/form-empleado', $datos);
+        $this->load_view('mantenimiento/empleado/form-empleado', $datos);
     }
 
     public function editar_empleado($ID){

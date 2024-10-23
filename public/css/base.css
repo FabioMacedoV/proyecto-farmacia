@@ -3,9 +3,24 @@
     margin: 0;
     padding: 0;
     font-size: 20px;
-    font-weight: bold;
 }
 
 body{
     background-color: #fff;
+    width: 100vw;
+    height: 100vh;
+}
+
+.row{
+    margin: 0;
+    padding: 0;
+}
+.col-2{
+    margin: 0;
+    padding: 0;
+}
+
+.col{
+    margin: 0;
+    padding: 0;
 }

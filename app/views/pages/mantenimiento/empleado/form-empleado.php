@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+} ?>
 
 <?php require_once APP . '/views/inc/header.php' ?>
 
@@ -73,10 +75,6 @@
         </div>
     
         <div class="col form-contrato">
-            <div class="row title-form-contrato">
-                <h2>DETALLES DE CONTRATO</h2>
-            </div>
-
             <div class="row">
                 <div class="col">
                     <label class="label" for="username">Salario:</label>

@@ -1,0 +1,17 @@
+.header{
+    height: 90px;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #2f98ba; 
+}
+
+.header .logo{
+    margin-left: 50px ;
+}
+
+.header .nUsuario{
+    margin-right: 50px;
+}

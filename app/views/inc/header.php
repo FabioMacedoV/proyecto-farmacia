@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="<?= URL . rutaIcons ?>">
     <link rel="stylesheet" href="<?= URL . rutaCssBase ?>">
     <link rel="stylesheet" href="<?= URL . rutaCssCustom.'/mantenimiento.css' ?>">
+    <link rel="stylesheet" href="<?= URL . rutaCssCustom.'/nav-mantenimiento.css' ?>">
 
     <?php if (isset($datos['css-ext'])) : ?>
     <link rel="stylesheet" href="<?= URL.$datos['css-ext'] ?>">

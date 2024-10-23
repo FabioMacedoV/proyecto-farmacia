@@ -9,25 +9,31 @@
         <?php require_once APP . '/views/inc/nav-dashboard.php' ?>
     </div>
     <div class="col">
-        <h1>Bienvenido, <?php echo $_SESSION['Usuario']; ?></h1>
+        <div class="row-custom">
+            <?php require_once APP . '/views/inc/nav-mantenimiento.php' ?>
+        </div>
+        <div class="row">
+            <h1>Bienvenido, <?php echo $_SESSION['Usuario']; ?></h1>
 
-        <!-- <div class="contenedor-graficos">
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-6 grafico-template">
-                        <h3>Grafico de barras:</h3>
-                        <canvas id="myChart" width="400" height="200"></canvas>
+            <div class="contenedor-graficos">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6 grafico-template">
+                            <h3>Grafico de barras:</h3>
+                            <canvas id="myChart" width="400" height="200"></canvas>
+                        </div>
+                        <!--! No encender sin antes preguntar, porque hace scroll hacia abajo fuertemente!-->
+                        <!-- <div class="col-md-6 grafico-template">
+                            <h3>Grafico circular:</h3>
+                            <canvas id="donut" width="400" height="200"></canvas>
+                        </div> -->
                     </div>
-                    <div class="col-md-6 grafico-template">
-                        <h3>Grafico circular:</h3>
-                        <canvas id="donut" width="400" height="200"></canvas>
-                    </div> 
                 </div>
             </div>
-        </div>-->
 
+        </div>
     </div>
-</div> 
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 

@@ -5,7 +5,7 @@
 }
 
 aside{
-    width: 16vw;
+    width: 285px;
     height: 100%;
     background: #2f98ba;
 }
@@ -16,8 +16,6 @@ aside .top{
     display: flex;
     align-items: center;
     justify-content:center;
-    padding-top: 8px;
-    padding-bottom: 8px;
 }
 
 .top .logo{
@@ -33,14 +31,15 @@ aside .top{
 
 /** Barra de navegacion **/
 aside .sidebar{
-    background: #fff;
+    background: #ebebeb;
     display: flex;
     flex-direction: column;
-    height: 87vh;
+    height: 89vh;
     position: relative;
 }
 
 .sidebar h3{
+    font-size: 20px;
     font-weight: 500;
 }
 
@@ -67,7 +66,7 @@ aside .sidebar a:last-child{
 }
 
 aside .sidebar a:hover{
-    color:#7380ec;
+    color:#35abd2;
 }
 
 aside .sidebar a:hover i{
