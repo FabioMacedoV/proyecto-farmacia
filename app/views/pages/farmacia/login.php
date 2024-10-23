@@ -1,4 +1,4 @@
-<?php require_once APP . '/views/inc/header.php' ?>
+<?php require_once APP . '/views/inc/header-principal.php' ?>
 
 <header class="header">
     <div class="logo">

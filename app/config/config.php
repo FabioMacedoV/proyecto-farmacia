@@ -11,7 +11,7 @@
 
     //* Urls Css
     define("rutaCss", "/public/css/bootstrap.min.css");
-    define("rutaCssBase", "/public/css/base.css");
+    define("rutaCssBase", "/public/css/principal.css");
     define("rutaCssCustom", "/public/css");
     
     //* Url Img
