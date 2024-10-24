@@ -56,9 +56,16 @@ const myDonutChart = new Chart(ctxDount, {
         }]
     },
     options: {
+        responsive: true,
+        maintainAspectRatio: false,
         plugins: {
             legend: {
                 position: 'top', 
+            },
+            title: {
+                display: true,
+                text: 'Gráfico Donut de Colores' 
+                
             }
         }
     }

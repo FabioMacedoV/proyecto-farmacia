@@ -1,76 +1,65 @@
-:root{
-    --color-white: #fff;
-    --color-info-dark: #7d8da1;
-    --color-info-light: #dce1eb;
-    --color-dark: #363949;
-    --color-light: rgba(132, 139,  200, 0.18);
-    --color-primary-variant: #111e88;
-    --color-dark-variant: #677483;
-    --color-background: #f6f6f9;
-
-    --card-border-radius: 2rem;
-    --border-radius-1: 0.4rem;
-    --border-radius-2: 0.8rem;
-    --border-radius-3: 1.2rem;
-
-    --card-padding: 1.8rem;
-
-    --box-shadow: 0 2rem 3rem var(--color-light);
+.estadistica-template-red{
+    margin: 30px 20px;
+    padding: 10px;
+    border-left: 10px solid #bf0808;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
 }
 
-h1{
-    font-weight: 700;
-    margin-top: 0.5rem;
-    font-size: 1.8rem;
+.estadistica-template-blue{
+    margin: 30px 20px;
+    padding: 10px;
+    border-left: 10px solid #0c0cb0;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
 }
 
-h2{
-    font-weight: 700;
-    font-size: 1.2rem;
+.estadistica-template-green{
+    margin: 30px 20px;
+    padding: 10px;
+    border-left: 10px solid #0ea20e;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
 }
 
-h3{
-    font-size: 0.87rem;
+.estadistica-template-yelow{
+    margin: 30px 20px;
+    padding: 10px;
+    border-left: 10px solid #bdd618;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
 }
 
-.main{
-    margin-top: 1.4rem;
+.text-estadistica{
+    font-size: 25px;
 }
 
-main .insights{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.8rem;
+.text-estadistica i{
+    font-size: 25px;
 }
 
-main .insights > div{
-    background: var(--color-white);
-    padding: var(--card-padding);
-    border-radius: var(--card-border-radius);
-    margin-top: 1rem;
-    box-shadow: var(--box-shadow);
-    transition: all 30ms ease;
+.estadistica{
+    text-align: end;
+    font-size: 50px;
 }
 
-main .insights > div:hover{
-    box-shadow: none;
+.red{
+    color: #bf0808;
 }
 
-main .insights > div i{
-    background: #2f98ba;
-    padding: 0.5rem;
-    border-radius: 50%;
-    color: var(--color-white);
-
+.blue{
+    color: #0c0cb0;
 }
 
-main .insights > div .middle{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.green{
+    color: #0ea20e;
 }
 
-main .insights h3{
-    margin: 1rem 0 0.6rem;
-    font-size: 1rem;
+.yelow{
+    color: #bdd618;
 }
+

@@ -1,13 +1,16 @@
+.row{
+    margin: 5px;
+}
+.col{
+    margin: 2px 3px;
+}
+
 /** Titulo empleado **/
 .title-empleado{
     width: 100%;
     color: #000;
     text-align: center;
-    padding: 40px;
-}
-
-.form-persona{
-    padding: 10px;
+    margin: 20px;
 }
 
 .form-contrato .title-form-contrato{

@@ -23,7 +23,7 @@
                     <input class="input-buscador" type="text" placeholder="Buscar..." name="txtBuscador" id="txtBuscador">
                     <div class="contenedor-prueba">
                         <a class="boton-buscar"><button onclick="buscarEmpleado()"><i class="fa fa-search" aria-hidden="true"></i> Buscar</button></a>
-                        <a class="boton-limpiar"><button onclick="limpiarBusqueda()"><i class="fa fa-times" aria-hidden="true"></i> Limpiar</button></a>
+                        <a class="boton-limpiar"><button onclick="limpiarBusqueda()"><i class="fa-solid fa-eraser"></i> Limpiar</button></a>
                     </div>
                 </div>
 
