@@ -1,12 +1,12 @@
-const ctx = document.getElementById("myChart").getContext("2d")
+const barClientesFrecuentes = document.getElementById("clientesFrecuentes").getContext("2d")
 
-const myChart = new Chart(ctx, {
+const myChart = new Chart(barClientesFrecuentes, {
     type: 'bar', 
     data: {
-        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'], 
+        labels: nombresClientes, 
         datasets: [{
-            label: 'Meses', 
-            data: [12, 19, 3, 5, 2], 
+            label: 'Compras del mes', 
+            data: totalCompras, 
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -33,39 +33,24 @@ const myChart = new Chart(ctx, {
     }
 });
 
-const ctxDount = document.getElementById('donut').getContext('2d');
+const barVentasMes = document.getElementById('ventasMes').getContext('2d');
 
-const myDonutChart = new Chart(ctxDount, {
-    type: 'doughnut', 
+const myLineChar = new Chart(barVentasMes, {
+    type: 'line', 
     data: {
-        labels: dataGraficos,
+        labels: nombreMeses, 
         datasets: [{
-            label: 'Colores',
-            data: cantidades, 
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)'
-            ],
-            borderWidth: 1
+            label: 'Ventas por Mes', 
+            data: datosVentas, 
+            borderColor: 'rgba(10, 239, 113, 1)',
+            backgroundColor: 'rgba(10, 239, 113, 0.8)',
+            borderWidth: 2
         }]
     },
     options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: {
-                position: 'top', 
-            },
-            title: {
-                display: true,
-                text: 'Gráfico Donut de Colores' 
-                
+        scales: {
+            y: {
+                beginAtZero: true
             }
         }
     }

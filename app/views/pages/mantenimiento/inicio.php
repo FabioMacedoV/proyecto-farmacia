@@ -4,6 +4,7 @@
 
 <?php require_once APP . '/views/inc/header.php' ?>
 
+
 <div class="row">
     <div class="col-2">
         <?php require_once APP . '/views/inc/nav-dashboard.php' ?>
@@ -14,50 +15,41 @@
         </div>
         <div class="row">
             <div class="col">
+                <!-- <pre><?php print_r($datos["cantidadVentasMes"]); ?></pre> -->
+
                 <h1 style="margin: 5px 10px;">Bienvenido, <?php echo $_SESSION['Usuario']; ?></h1>
 
                 <div class="row">
                     <div class="col">
                         <div class="estadistica-template-red">
-                            <div class="text-estadistica red"><i class="fa-solid fa-chart-simple"></i> Analitica 1</div>
-                            <div class="estadistica red"><?php echo '200' ?></div>
+                            <div class="text-estadistica red"><i class="fa-solid fa-chart-simple"></i> Ventas del Mes de <?php echo $datos["ventaMes"]['mes'] ?></div>
+                            <div class="estadistica red"><?php echo $datos["ventaMes"]['venta_mes'] ?></div>
                         </div>
                     </div>
 
                     <div class="col">
                         <div class="estadistica-template-blue">
-                            <div class="text-estadistica blue"><i class="fa-solid fa-chart-simple"></i> Analitica 2</div>
-                            <div class="estadistica blue"><?php echo '200' ?></div>
+                            <div class="text-estadistica blue"><i class="fa-solid fa-chart-line"></i> Producto más vendido</div>
+                            <div class="estadistica blue"><?php echo $datos["productoVendido"]['producto'] ?></div>
                         </div>
                     </div>
 
                     <div class="col">
                         <div class="estadistica-template-green">
-                            <div class="text-estadistica green"><i class="fa-solid fa-chart-simple"></i> Analitica 3</div>
-                            <div class="estadistica green"><?php echo '200' ?></div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="estadistica-template-yelow">
-                            <div class="text-estadistica yelow"><i class="fa-solid fa-chart-simple"></i> Analitica 4</div>
-                            <div class="estadistica yelow"><?php echo '200' ?></div>
+                            <div class="text-estadistica green"><i class="fa-regular fa-chart-bar"></i> Ventas de Hoy</div>
+                            <div class="estadistica green"><?php echo $datos["ventaDiaria"]['venta_hoy']; ?></div>
                         </div>
                     </div>
                 </div>
 
-                <div class="contenedor-graficos">
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h3>Grafico de barras:</h3>
-                                <canvas id="myChart" width="400" height="200"></canvas>
-                            </div>
-                            <!-- <div class="col-md-5">
-                                <h3>Grafico circular:</h3>
-                                <canvas id="donut" width="400" height="200"></canvas>
-                            </div> -->
-                        </div>
+                <div class="row">
+                    <div class="col-6">
+                        <h3>Clientes Frecuentes:</h3>
+                        <canvas id="clientesFrecuentes" width="400" height="230"></canvas>
+                    </div>
+                    <div class="col-6">
+                        <h3>Ventas por cada Mes:</h3>
+                        <canvas id="ventasMes" width="400" height="230"></canvas>
                     </div>
                 </div>
             </div>
@@ -69,17 +61,27 @@
 
 <?php
 $datosNombres = array_map(function ($producto) {
-    return $producto['nombre'];
-}, $datos["dataGraficos"]);
+    return $producto['cliente'];
+}, $datos["clientesFrecuentes"]);
 
 $datosCantidad = array_map(function ($producto) {
-    return $producto['cantidad'];
-}, $datos["dataGraficos"]);
+    return $producto['total_compras'];
+}, $datos["clientesFrecuentes"]);
+
+$datosMeses = array_map(function ($producto) {
+    return $producto['mes'];
+}, $datos["cantidadVentasMes"]);
+
+$datosVentas = array_map(function ($producto) {
+    return $producto['venta_mes'];
+}, $datos["cantidadVentasMes"]);
 ?>
 
 <script>
-    var dataGraficos = <?php echo json_encode($datosNombres); ?>;
-    var cantidades = <?php echo json_encode($datosCantidad); ?>;
+    var nombresClientes = <?php echo json_encode($datosNombres); ?>;
+    var totalCompras = <?php echo json_encode($datosCantidad); ?>;
+    var nombreMeses = <?php echo json_encode($datosMeses); ?>;
+    var datosVentas = <?php echo json_encode($datosVentas); ?>;
 </script>
 
 <script src="<?= URL . rutaJsCustom . '/grafico-barras.js' ?>"></script>

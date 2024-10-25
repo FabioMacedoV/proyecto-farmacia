@@ -136,6 +136,4 @@ class Empleado extends Control{
         return true;
     }
 
-
-
 }

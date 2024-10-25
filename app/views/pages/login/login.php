@@ -32,11 +32,11 @@
                             <h2>Accede a NickyMedic</h2>
                             <div class="mb-3">
                                 <label class="label" for="username">Usuario:</label>
-                                <input class="form-control" type="text" name="txtusuario" id="txtusuario" required>
+                                <input class="form-control" type="text" name="txtusuario" id="txtusuario" placeholder="Ingrese usuario" required>
                             </div>
                             <div class="mb-3">
                                 <label class="label" for="password">Contraseña:</label>
-                                <input class="form-control" type="password" name="txtcontrasenia" id="txtcontrasenia" required>
+                                <input class="form-control" type="password" name="txtcontrasenia" id="txtcontrasenia" placeholder="Ingrese contraseña" required>
                             </div>
                             <?php if (isset($datos['mensaje'])) : ?>
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">

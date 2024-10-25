@@ -81,7 +81,7 @@
 
 .table-wrapper {
     width: 95%;
-    height: 450px; /* Altura de ejemplo */
+    max-height: 450px; /*! Altura !*/
     overflow: auto;
 }
 

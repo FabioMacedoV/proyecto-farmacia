@@ -143,7 +143,7 @@ if ($datos["tipoRegistro"] == 2) {
                             <a class="boton-cancelar"><button onclick="regresarRegistro()"><i class="fa-solid fa-share"></i> Regresar</button></a>
                         <?php endif; ?>
                     </div>
-                    
+
                 </div>
 
             </div>

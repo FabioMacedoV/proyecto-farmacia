@@ -1,92 +1,16 @@
 <?php
 
-class Comun extends Control{
+class GraficosEstadisticas extends Control{
 
     private $db;
 
-    public function __construct()
-    {
+    public function __construct(){
         $this->db = $this-> load_model("Conexion");
     }
 
-    public function obtenerRoles(){
+    public function ventasMes(){
 
-        $sql = "EXEC [dbo].[sp_obtener_todos_roles_empleado]";
-
-        $this->db->conectar();
-
-        $stmt = $this->db->prepare($sql);
-
-        // Ejecutar el procedimiento almacenado
-        $stmt->execute();
-
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        return $result;
-
-    }
-
-    public function obtenerCategorias(){
-
-        $sql = "EXEC [dbo].[sp_obtener_todas_categorias]";
-
-        $this->db->conectar();
-
-        $stmt = $this->db->prepare($sql);
-
-        // Ejecutar el procedimiento almacenado
-        $stmt->execute();
-
-        $this->db->desconectar();
-
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        return $result;
-
-    }
-
-    public function obtenerMarcas(){
-        
-        $sql = "EXEC [dbo].[sp_obtener_todas_marcas]";
-
-        $this->db->conectar();
-
-        $stmt = $this->db->prepare($sql);
-
-        // Ejecutar el procedimiento almacenado
-        $stmt->execute();
-
-        $this->db->desconectar();
-
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        return $result;
-
-    }
-
-    public function obtenerProductos(){
-        
-        $sql = "EXEC [dbo].[sp_obtener_todos_productos]";
-
-        $this->db->conectar();
-
-        $stmt = $this->db->prepare($sql);
-
-        // Ejecutar el procedimiento almacenado
-        $stmt->execute();
-
-        $this->db->desconectar();
-
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        return $result;
-
-    }
-
-    public function obtenerHorarios(){
-
-        $sql = "EXEC [dbo].[sp_obtener_todos_horarios]";
-
+        $sql = "EXEC [dbo].[sp_reporte_ventas_del_mes]";
         $this->db->conectar();
 
         $stmt = $this->db->prepare($sql);
@@ -101,6 +25,71 @@ class Comun extends Control{
         return $result;
     }
 
-    
+    public function productoMasVendido(){
 
+        $sql = "EXEC [dbo].[sp_reporte_producto_mas_vendido]";
+        $this->db->conectar();
+
+        $stmt = $this->db->prepare($sql);
+
+        // Ejecutar el procedimiento almacenado
+        $stmt->execute();
+
+        $this->db->desconectar();
+
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
+    public function ventasDiaria(){
+
+        $sql = "EXEC [dbo].[sp_reporte_venta_diaria]";
+        $this->db->conectar();
+
+        $stmt = $this->db->prepare($sql);
+
+        // Ejecutar el procedimiento almacenado
+        $stmt->execute();
+
+        $this->db->desconectar();
+
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
+    public function clientesFrecuentes(){
+
+        $sql = "EXEC [dbo].[sp_reporte_clientes_frecuentes]";
+        $this->db->conectar();
+
+        $stmt = $this->db->prepare($sql);
+
+        // Ejecutar el procedimiento almacenado
+        $stmt->execute();
+
+        $this->db->desconectar();
+
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
+    public function cantidadVentasMes(){
+
+        $sql = "EXEC [dbo].[sp_reporte_cantidad_ventas_mes]";
+        $this->db->conectar();
+
+        $stmt = $this->db->prepare($sql);
+
+        // Ejecutar el procedimiento almacenado
+        $stmt->execute();
+
+        $this->db->desconectar();
+
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
 }

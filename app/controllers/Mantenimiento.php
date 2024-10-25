@@ -3,13 +3,21 @@
 class Mantenimiento extends Control{
 
     public function inicio(){ 
-        $conexion = $this->load_model("Comun");
-        $dataGrafico = $conexion -> graficoProductos(); 
+        $conexion = $this->load_model("GraficosEstadisticas");
+        $ventaMes = $conexion->ventasMes();
+        $productoVendido = $conexion->productoMasVendido();
+        $ventaDiaria = $conexion->ventasDiaria();
+        $clientesFrecuentes = $conexion->clientesFrecuentes();
+        $cantidadVentasMes = $conexion->cantidadVentasMes();
 
         $datos = [
             'title' => 'Inicio',
             'css-ext' => '/css/mantenimiento/inicio.css',
-            'dataGraficos' => $dataGrafico,
+            'ventaMes' => $ventaMes[0],
+            'productoVendido'=> $productoVendido[0],
+            'ventaDiaria'=> $ventaDiaria[0],
+            'clientesFrecuentes'=> $clientesFrecuentes,
+            'cantidadVentasMes'=> $cantidadVentasMes,
         ];
 
         $this->load_view('mantenimiento/inicio', $datos);
@@ -25,7 +33,7 @@ class Mantenimiento extends Control{
         $datos = [
             'title' => 'Empleados',
             'css-ext' => '/css/mantenimiento/grid-view.css',
-            'js-ext'=>'/js/empleado.js',
+            'js-ext'=>'/js/mantenimiento/empleado.js',
             'grid' => $grilla,
         ];
 
@@ -41,7 +49,7 @@ class Mantenimiento extends Control{
         $datos = [
             'title' => 'Registro Empleados',
             'css-ext' => '/css/mantenimiento/form-empleado.css',
-            'js-ext'=>'/js/empleado.js',
+            'js-ext'=>'/js/mantenimiento/empleado.js',
             'tipoRegistro' => 0,
             'roles' => $roles,
             'horarios' => $horarios,
@@ -64,7 +72,7 @@ class Mantenimiento extends Control{
         $datos = [
             'title' => 'Actualizar Empleados',
             'css-ext' => '/css/mantenimiento/form-empleado.css',
-            'js-ext'=>'/js/empleado.js',
+            'js-ext'=>'/js/mantenimiento/empleado.js',
             'tipoRegistro' => 1,
             'empleado' => $empleado,
             'roles' => $roles,
@@ -179,7 +187,7 @@ class Mantenimiento extends Control{
         $datos = [
             'title' => 'Actualizar Empleados',
             'css-ext' => '/css/mantenimiento/form-empleado.css',
-            'js-ext'=>'/js/empleado.js',
+            'js-ext'=>'/js/mantenimiento/empleado.js',
             'tipoRegistro' => 2,
             'empleado' => $empleado,
             'roles' => $roles,
@@ -191,16 +199,20 @@ class Mantenimiento extends Control{
 
     public function producto(){
 
+        $nombre = isset($_GET['nombre']) ? $_GET['nombre'] : '';
+
+        $conexion = $this->load_model("Producto");
+
+        $grilla = $conexion->obtenerGrilla($nombre);
+
         $datos = [
             'title' => 'Productos',
-            'css-ext' => '/css/mantenimiento/grid-producto.css',
-            'grid' => [
-                ["id" => "01", "nombre" => "Nombre1", "descripcion" => 'Descripcion1', "precio" => "5.99", "marca" => "Marca 1", "categoria" => 'Categoria1'],
-                ["id" => "02", "nombre" => "Nombre2", "descripcion" => 'Descripcion2', "precio" => "14.50", "marca" => "Marca 2", "categoria" => 'Categoria2'],
-            ]
+            'css-ext' => '/css/mantenimiento/grid-view.css',
+            'js-ext'=>'/js/mantenimiento/producto.js',
+            'grid' => $grilla,
         ];
 
-        $this->load_view('mantenimiento/grid-producto', $datos);
+        $this->load_view('mantenimiento/producto/grid-producto', $datos);
     }
 
     public function registro_producto(){
@@ -212,12 +224,13 @@ class Mantenimiento extends Control{
         $datos = [
             'title' => 'Registro Productos',
             'css-ext' => '/css/mantenimiento/form-producto.css',
+            'tipoRegistro' => 0,
             'categorias' => $categorias,
             'marcas' => $marcas,
 
         ];
 
-        $this->load_view('mantenimiento/form-producto', $datos);
+        $this->load_view('mantenimiento/producto/form-producto', $datos);
 
     }
 
