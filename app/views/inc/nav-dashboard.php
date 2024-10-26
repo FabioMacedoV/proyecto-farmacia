@@ -19,11 +19,11 @@
                 <i class="fas fa-box"></i> 
                 <h3>Productos</h3>
             </a>
-            <a href="<?= URL . "/mantenimiento/ventas"?>">
+            <a href="<?= URL . "/mantenimiento/venta"?>">
                 <i class="fa-solid fa-money-bill"></i> 
                 <h3>Ventas</h3>
             </a>
-            <a href="<?= URL . "/mantenimiento/clientes"?>">
+            <a href="<?= URL . "/mantenimiento/cliente"?>">
                 <i class="fas fa-users"></i> 
                 <h3>Clientes</h3>
             </a>

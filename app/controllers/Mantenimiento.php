@@ -366,29 +366,38 @@ class Mantenimiento extends Control{
     }
 
     public function inventario(){
+        $nombre = isset($_GET['nombre']) ? $_GET['nombre'] : '';
+
+        $conexion = $this->load_model('Inventario');
+
+        $grilla = $conexion->obtenerGrilla($nombre);
+
         $datos = [
             'title' => 'Inventario',
-            'css-ext' => '/css/mantenimiento/grid-inventario.css',
-            'grid' => [
-                ["id" => "01", "nombre" => "Nombre1", "fecha_ingreso" => '01/01/2024', "cantidad" => "450", "fecha_salida" => "30/01/2024"],
-                ["id" => "02", "nombre" => "Nombre2", "fecha_ingreso" => '01/01/2024', "cantidad" => "300", "fecha_salida" => "30/01/2024"],
-            ]
+            'css-ext' => '/css/mantenimiento/grid-view.css',
+            'js-ext'=>'/js/mantenimiento/inventario.js',
+            'grid' => $grilla,
         ];
 
-        $this->load_view('mantenimiento/grid-inventario', $datos);
+        $this->load_view('mantenimiento/inventario/grid-inventario', $datos);
     }
 
-    public function ventas(){
+    public function venta(){
+
+        $nombre = isset($_GET['nombre']) ? $_GET['nombre'] : '';
+
+        $conexion = $this-> load_model('Venta');
+
+        $grilla = $conexion->obtenerGrilla($nombre);
+
         $datos = [
             'title' => 'Ventas',
-            'css-ext' => '/css/mantenimiento/grid-ventas.css',
-            'grid' => [
-                ["id" => "01", "fecha" => '01/01/2024', "total" => "150.30", "cliente" => "Cliente 1", "trabajador" => "Trabajador 01", "producto" => "Producto 01"],
-                ["id" => "02", "fecha" => '01/01/2024', "total" => "220.50", "cliente" => "Cliente 2", "trabajador" => "Trabajador 02", "producto" => "Producto 02"],
-            ]
+            'css-ext' => '/css/mantenimiento/grid-view.css',
+            'js-ext'=>'/js/mantenimiento/venta.js',
+            'grid' => $grilla,
         ];
 
-        $this->load_view('mantenimiento/grid-ventas', $datos);
+        $this->load_view('venta/grid-ventas', $datos);
     }
 
     public function detalle_ventas($id){
@@ -401,7 +410,7 @@ class Mantenimiento extends Control{
             ]
         ];
 
-        $this->load_view('mantenimiento/detalle-ventas', $datos);
+        $this->load_view('venta/detalle-ventas', $datos);
     }
 
     public function orden_venta(){
@@ -420,7 +429,7 @@ class Mantenimiento extends Control{
             'productos' => $productos,
         ];
 
-        $this->load_view('mantenimiento/orden-venta', $datos);
+        $this->load_view('venta/orden-venta', $datos);
 
     }
 
