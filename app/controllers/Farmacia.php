@@ -28,13 +28,11 @@ class Farmacia extends Control{
     public function iniciar_sesion(){
         
         $modelo = $this->load_model("Login");
-        $conexion = $this->load_model("Comun");
 
         $usuario = trim($_POST["txtusuario"]);
         $contrasenia = trim($_POST["txtcontrasenia"]);
 
         $resp = $modelo->loguearse($usuario, $contrasenia);
-        $dataGrafico = $conexion -> graficoProductos();
 
 
         if((int)$resp['confirmacion'] != 1 ){
@@ -59,13 +57,10 @@ class Farmacia extends Control{
         $_SESSION['Usuario'] = $resp['nombre_usuario'];
         $_SESSION['Tipousuario'] = $resp['tipo_usuario'];
 
-        $datos = [
-            'title' => 'Inicio',
-            'css-ext' => '/css/mantenimiento/inicio.css',
-            'dataGraficos' => $dataGrafico,
-        ];
-
-        $this->load_view('mantenimiento/inicio', $datos);
+        
+        header("Location: ".URL.'/mantenimiento/inicio');
+        exit();
+        
     }
 
     public function cerrar_sesion(){

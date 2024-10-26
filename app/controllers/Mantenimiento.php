@@ -220,18 +220,149 @@ class Mantenimiento extends Control{
         $conexion = $this->load_model('Comun');
         $categorias = $conexion -> obtenerCategorias();
         $marcas = $conexion -> obtenerMarcas();
+        $proveedores = $conexion -> obtenerProveedores();
 
         $datos = [
             'title' => 'Registro Productos',
             'css-ext' => '/css/mantenimiento/form-producto.css',
+            'js-ext'=>'/js/mantenimiento/producto.js',
             'tipoRegistro' => 0,
             'categorias' => $categorias,
             'marcas' => $marcas,
-
+            'proveedores' => $proveedores,
         ];
 
         $this->load_view('mantenimiento/producto/form-producto', $datos);
 
+    }
+
+    public function editar_producto($ID){
+        $conexion = $this->load_model('Comun');
+        $modeloProducto = $this->load_model('Producto');
+
+        $categorias = $conexion -> obtenerCategorias();
+        $marcas = $conexion -> obtenerMarcas();
+        $proveedores = $conexion -> obtenerProveedores();
+        $lista = $modeloProducto -> obtenerProducto($ID);
+
+        $datos = [
+            'title' => 'Registro Productos',
+            'css-ext' => '/css/mantenimiento/form-producto.css',
+            'js-ext'=>'/js/mantenimiento/producto.js',
+            'tipoRegistro' => 1,
+            'categorias' => $categorias,
+            'marcas' => $marcas,
+            'proveedores' => $proveedores,
+            'producto' => $lista[0],
+        ];
+
+        $this->load_view('mantenimiento/producto/form-producto', $datos);
+    }
+
+    public function guardar_producto(){
+        $modeloProducto = $this->load_model('Producto');
+
+        $nombre = trim($_POST['txtNombre']);
+        $categoria = trim($_POST['selectCategoria']);
+        $marca = trim($_POST['selectMarca']);
+        $precio = trim($_POST['txtPrecio']);
+        $stock = trim($_POST['txtStock']);
+        $fechaVencimiento = trim($_POST['dateFechaVencimiento']);
+        $descripcion = trim($_POST['txtDescripcion']);
+        $proveedor = trim($_POST['selectProveedor']);
+        $indicaciones = trim($_POST['txtIndicaciones']);
+        $contradiccion = trim($_POST['txtContradiccion']);
+
+        $data = [
+            'nombre' => $nombre,
+            'categoria' => $categoria,
+            'marca' => $marca,
+            'precio' => $precio,
+            'stock' => $stock,
+            'fechaVencimiento' => $fechaVencimiento,
+            'descripcion' => $descripcion,
+            'proveedor' => (int)$proveedor,
+            'indicaciones' => (int)$indicaciones,
+            'contradiccion' => $contradiccion,
+        ];
+
+        $resp = $modeloProducto->guardarProducto($data);
+
+        if($resp){
+            header("Location: ".URL.'/mantenimiento/producto');
+            exit();
+        }
+        
+    }
+    public function actualizar_producto(){
+        $modeloProducto = $this->load_model('Producto');
+
+        $id = trim($_POST['idProducto']);
+        $nombre = trim($_POST['txtNombre']);
+        $categoria = trim($_POST['selectCategoria']);
+        $marca = trim($_POST['selectMarca']);
+        $precio = trim($_POST['txtPrecio']);
+        $stock = trim($_POST['txtStock']);
+        $fechaVencimiento = trim($_POST['dateFechaVencimiento']);
+        $descripcion = trim($_POST['txtDescripcion']);
+        $proveedor = trim($_POST['selectProveedor']);
+        $indicaciones = trim($_POST['txtIndicaciones']);
+        $contradiccion = trim($_POST['txtContradiccion']);
+
+        $data = [
+            'id'=> $id,
+            'nombre' => $nombre,
+            'categoria' => $categoria,
+            'marca' => $marca,
+            'precio' => $precio,
+            'stock' => $stock,
+            'fechaVencimiento' => $fechaVencimiento,
+            'descripcion' => $descripcion,
+            'proveedor' => (int)$proveedor,
+            'indicaciones' => (int)$indicaciones,
+            'contradiccion' => $contradiccion,
+        ];
+
+        $resp = $modeloProducto->actualizarProducto($data);
+
+        if($resp){
+            header("Location: ".URL.'/mantenimiento/producto');
+            exit();
+        }
+    }
+
+    public function eliminar_producto($ID){
+        $modeloProducto = $this->load_model('Producto');
+
+        $resp = $modeloProducto->eliminarProducto($ID);
+
+        if($resp){
+            header("Location: ".URL.'/mantenimiento/producto');
+            exit();
+        }
+    }
+
+    public function visualizar_producto($ID){
+        $conexion = $this->load_model('Comun');
+        $modeloProducto = $this->load_model('Producto');
+
+        $categorias = $conexion -> obtenerCategorias();
+        $marcas = $conexion -> obtenerMarcas();
+        $proveedores = $conexion -> obtenerProveedores();
+        $lista = $modeloProducto -> obtenerProducto($ID);
+
+        $datos = [
+            'title' => 'Registro Productos',
+            'css-ext' => '/css/mantenimiento/form-producto.css',
+            'js-ext'=>'/js/mantenimiento/producto.js',
+            'tipoRegistro' => 2,
+            'categorias' => $categorias,
+            'marcas' => $marcas,
+            'proveedores' => $proveedores,
+            'producto' => $lista[0],
+        ];
+
+        $this->load_view('mantenimiento/producto/form-producto', $datos);
     }
 
     public function inventario(){

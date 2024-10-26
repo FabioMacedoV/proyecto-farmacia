@@ -17,7 +17,6 @@
                 <h2>Bienvenido al listado de Productos</h2>
                 <a href="<?= URL . "/mantenimiento/registro_producto" ?>" class="boton"><button><i class="fa fa-plus" aria-hidden="true"></i> Agregar</button></a>
             </div>
-
             <div class="container table-workers">
                 <div class="nav-table">
                     <h3>Consultar producto: </h3>
@@ -52,9 +51,9 @@
                                         <td><?php echo $row['marca']; ?></td>
                                         <td><?php echo $row['categoria']; ?></td>
                                         <td>
-                                            <a href="#" class="boton-visualizar"><button><i class="fa fa-eye" aria-hidden="true"></i></button></a>
-                                            <a href="#" class="boton-editar"><button><i class="fa fa-pencil" aria-hidden="true"></i></button></a>
-                                            <a href="#" class="boton-eliminar"><button><i class="fa fa-trash" aria-hidden="true"></i></button></a>
+                                            <a href="<?= URL . "/mantenimiento/visualizar_producto/" . $row['id'] ?>" class="boton-visualizar"><button><i class="fa fa-eye" aria-hidden="true"></i></button></a>
+                                            <a href="<?= URL . "/mantenimiento/editar_producto/" . $row['id'] ?>" class="boton-editar"><button><i class="fa fa-pencil" aria-hidden="true"></i></button></a>
+                                            <a class="boton-eliminar"><button onclick="confirmacionEliminar(<?php echo $row['id'] ?>)"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

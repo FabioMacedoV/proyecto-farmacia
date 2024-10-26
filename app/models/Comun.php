@@ -101,6 +101,21 @@ class Comun extends Control{
         return $result;
     }
 
-    
+    public function obtenerProveedores(){
+        $sql = 'EXEC [dbo].[sp_obtener_todos_proveedores]';
+
+        $this->db->conectar();
+
+        $stmt = $this->db->prepare($sql);
+
+        // Ejecutar el procedimiento almacenado
+        $stmt->execute();
+
+        $this->db->desconectar();
+
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
 
 }
