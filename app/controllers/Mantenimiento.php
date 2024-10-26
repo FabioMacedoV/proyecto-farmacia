@@ -424,28 +424,130 @@ class Mantenimiento extends Control{
 
     }
 
-    public function clientes(){
+    public function cliente(){
+        $nombre = isset($_GET['nombre']) ? $_GET['nombre'] : '';
+        
+        $conexion = $this->load_model('Cliente');
+
+        $grilla = $conexion -> obtenerGrilla($nombre);
+
         $datos = [
             'title' => 'Clientes',
-            'css-ext' => '/css/mantenimiento/grid-clientes.css',
-            'grid' => [
-                ["dni" => "87654321", "nombre" => 'Nombre 01', "apellido_paterno" => "Apellido P1", "apellido_materno" => "Apellido M1", "celular" => "987654321"],
-                ["dni" => "12345678", "nombre" => 'Nombre 02', "apellido_paterno" => "Apellido P2", "apellido_materno" => "Apellido M2", "celular" => "123456789"],
-            ]
+            'css-ext' => '/css/mantenimiento/grid-view.css',
+            'js-ext'=>'/js/mantenimiento/cliente.js',
+            'grid' => $grilla,
         ];
 
-        $this->load_view('mantenimiento/grid-clientes', $datos);
+        $this->load_view('mantenimiento/cliente/grid-clientes', $datos);
     }
 
-    public function registro_clientes(){
+    public function registro_cliente(){
 
         $datos = [
-            'title' => 'Registro Clientes',
+            'title' => 'Registro Cliente',
             'css-ext' => '/css/mantenimiento/form-clientes.css',
+            'js-ext'=>'/js/mantenimiento/cliente.js',
+            'tipoRegistro' => 0,
         ];
 
-        $this->load_view('mantenimiento/form-clientes', $datos);
+        $this->load_view('mantenimiento/cliente/form-clientes', $datos);
 
+    }
+
+    public function editar_cliente($ID){
+        $modeloCliente = $this -> load_model('Cliente');
+
+        $cliente = $modeloCliente -> obtenerCliente($ID);
+
+        $datos = [
+            'title' => 'Registro Cliente',
+            'css-ext' => '/css/mantenimiento/form-clientes.css',
+            'js-ext'=>'/js/mantenimiento/cliente.js',
+            'tipoRegistro' => 1,
+            'cliente' => $cliente[0],
+        ];
+
+        $this->load_view('mantenimiento/cliente/form-clientes', $datos);
+    }
+
+    public function guardar_cliente(){
+        $modeloCliente = $this -> load_model('Cliente');
+
+        $nombre = trim($_POST['txtNombre']);
+        $dni = trim($_POST['txtDni']);
+        $apellidos = trim($_POST['txtApellidos']);
+        $celular = trim($_POST['txtCelular']);
+        $email = trim($_POST['txtEmail']);
+
+        $data = [
+            'nombre' => $nombre,
+            'dni' => $dni,
+            'apellidos' => $apellidos,
+            'celular' => $celular,
+            'email' => $email,
+        ];
+
+        $resp = $modeloCliente->guardarCliente($data);
+
+        if($resp){
+            header("Location: ".URL.'/mantenimiento/cliente');
+            exit();
+        }
+
+    }
+
+    public function actualizar_cliente(){
+        $modeloCliente = $this -> load_model('Cliente');
+
+        $id = trim($_POST['idCliente']);
+        $nombre = trim($_POST['txtNombre']);
+        $dni = trim($_POST['txtDni']);
+        $apellidos = trim($_POST['txtApellidos']);
+        $celular = trim($_POST['txtCelular']);
+        $email = trim($_POST['txtEmail']);
+
+        $data = [
+            'id' => $id,
+            'nombre' => $nombre,
+            'dni' => $dni,
+            'apellidos' => $apellidos,
+            'celular' => $celular,
+            'email' => $email,
+        ];
+
+        $resp = $modeloCliente->actualizarCliente($data);
+
+        if($resp){
+            header("Location: ".URL.'/mantenimiento/cliente');
+            exit();
+        }
+    }
+
+    public function eliminar_cliente($ID){
+        $modeloCliente = $this -> load_model('Cliente');
+
+        $resp = $modeloCliente->eliminarCliente($ID);
+
+        if($resp){
+            header("Location: ".URL.'/mantenimiento/cliente');
+            exit();
+        }
+    }
+
+    public function visualizar_cliente($ID){
+        $modeloCliente = $this -> load_model('Cliente');
+
+        $cliente = $modeloCliente -> obtenerCliente($ID);
+
+        $datos = [
+            'title' => 'Registro Cliente',
+            'css-ext' => '/css/mantenimiento/form-clientes.css',
+            'js-ext'=>'/js/mantenimiento/cliente.js',
+            'tipoRegistro' => 2,
+            'cliente' => $cliente[0],
+        ];
+
+        $this->load_view('mantenimiento/cliente/form-clientes', $datos);
     }
 
 }

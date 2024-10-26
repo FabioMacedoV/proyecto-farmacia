@@ -59,7 +59,7 @@
                                 <?php endforeach; ?>
                             <?php else : ?>
                                 <tr>
-                                    <td colspan="5">No se encontraron empleados.</td>
+                                    <td colspan="5">No se encontraron productos.</td>
                                 </tr>
                             <?php endif; ?>
                         </tbody>
