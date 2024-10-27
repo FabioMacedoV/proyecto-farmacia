@@ -51,7 +51,7 @@
                                         <td><?php echo $row['cliente']; ?></td>
                                         <td><?php echo $row['empleado']; ?></td>
                                         <td>
-                                            <a href="#" class="boton-visualizar"><button><i class="fa fa-eye" aria-hidden="true"></i></button></a>
+                                            <a href="<?= URL.'/mantenimiento/orden_venta/'. $row['venta_id']; ?>" class="boton-visualizar"><button><i class="fa fa-eye" aria-hidden="true"></i></button></a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

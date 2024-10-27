@@ -432,7 +432,7 @@ class Mantenimiento extends Control
                 ["value" => 2, "label" => "Factura"],
             ],
             'productos' => $productos,
-            'clientes'=> $clientes,
+            'clientes' => $clientes,
         ];
 
         $this->load_view('venta/orden-venta', $datos);
@@ -464,6 +464,59 @@ class Mantenimiento extends Control
         }
     }
 
+    public function agregar_venta()
+    {
+        $modeloVenta = $this->load_model('Venta');
+        $data = json_decode(file_get_contents('php://input'), true);
+
+        $documento = $data['documento'];
+        $fecha = $data['fecha'];
+        $numero = $data['numero'];
+        $cliente = $data['cliente'];
+        $trabajador = $data['trabajador'];
+        $listaProductos = $data['listaProductos'];
+        $impuesto = $data['impuesto'];
+        $descuento = $data['descuento'];
+        $total = $data['total'];
+
+        $dataVenta = [
+            'documento' => (int)$documento,
+            'numero' => $numero,
+            'fecha' => $fecha,
+            'cliente' => (int)$cliente,
+            'empleado' => (int)$trabajador,
+            'total' => $total,
+        ];
+
+        $id = $modeloVenta->agregarDatosVenta($dataVenta);
+
+        if ($id) {
+            foreach ($listaProductos as $producto) {
+
+                $dataproducto = [
+                    'cantidad' => $producto['cantidad'],
+                    'precio' => $producto['precio'],
+                    'impuestos' => $impuesto,
+                    'descuentos' => $descuento,
+                    'producto' => $producto['id']
+                ];
+
+                $resp = $modeloVenta->agregarDetalleVenta($dataproducto);
+            }
+
+        echo json_encode([
+            'success' => true,
+            'modelProducto' => 'Hecho exitosamente',
+        ]);
+        
+        }else{
+            echo json_encode([
+                'success' => false,
+                'modelProducto' => 'Error en el sistema',
+            ]);
+        }
+    }
+
     public function orden_venta($id)
     {
         $conexion = $this->load_model('Comun');
@@ -486,7 +539,7 @@ class Mantenimiento extends Control
                 ["value" => 2, "label" => "Factura"],
             ],
             'productos' => $productos,
-            'clientes'=> $clientes,
+            'clientes' => $clientes,
         ];
         $this->load_view('venta/orden-venta', $datos);
     }

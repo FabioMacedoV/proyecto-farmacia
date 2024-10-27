@@ -31,10 +31,8 @@ function buscarProducto(){
     }).catch(error => console.error('Error:', error));
 }
 
-let productos = [];
 
-function agregarProducto(){
-    debugger
+function agregarProducto(){    
     const productoSeleccionado = document.getElementById('selectProducto');
     
     const descripcion = document.getElementById('txtDescripcion').value;
@@ -61,29 +59,86 @@ function agregarProducto(){
     limpiarProducto();
 }
 
-function actualizarTabla(){
-    const tbody = document.getElementById("tablaMedicamentos");
-    tbody.innerHTML = "";
-
-    productos.forEach((producto) => {
-        const row = tbody.insertRow();
-        row.innerHTML = `
-            <td>${producto.nombre}</td>
-            <td>${producto.descripcion}</td>
-            <td>${producto.cantidad}</td>
-            <td>${producto.precio}</td>`;
-    });
-};
-
 function calcularTotales(){
-    const total = productos.reduce((sum, product) => sum + product.total, 0);
-    document.getElementById("txtCantidad").textContent = total
+    const totalP = productos.reduce((sum, producto) => sum + (parseFloat(producto.precio) * parseInt(producto.cantidad)), 0);
+    document.getElementById("txtTotal").value = totalP.toFixed(2);
 }
 
 function limpiarProducto(){
     document.getElementById('selectProducto').value = 0;
+    document.getElementById('txtStock').value = '';
     document.getElementById('txtDescripcion').value = '';
     document.getElementById('txtPrecio').value = '';
     document.getElementById('txtCantidad').value = '';
-
 } 
+
+function calcularDescuento(event){
+    let descuento = event.target.value;
+    
+    if(descuento.length != 1){
+        descuento = descuento / 100
+
+        let totalBruto = document.getElementById("txtTotal").value
+    
+        let newTotal = totalBruto - (totalBruto * descuento);
+    
+        document.getElementById("txtTotal").value = newTotal.toFixed(2);
+    }
+}
+
+function calcularImpuesto(event){
+    let Impuesto = event.target.value;
+
+    if(Impuesto.length != 1){
+
+        Impuesto = Impuesto / 100;
+
+        let totalCompleto = document.getElementById("txtTotal").value
+
+        let newTotalCompleto = parseFloat(totalCompleto) + (parseFloat(totalCompleto) * Impuesto);
+
+        document.getElementById("txtTotal").value = newTotalCompleto.toFixed(2);
+    }
+}
+
+const descuentoInput = document.getElementById('txtDescuento');
+const impuestoInput = document.getElementById('txtInpuesto');
+
+descuentoInput.addEventListener('input', calcularDescuento);
+impuestoInput.addEventListener('input', calcularImpuesto);
+
+function guardarVenta(){
+    const documento = document.getElementById('selectDoc').value;
+    const fecha = document.getElementById('fcFecha').value;
+    const numero = document.getElementById('txtNumero').value;
+    const cliente = document.getElementById('selectCliente').value;
+    const trabajador = idTrabajador;
+    const listaProductos = productos;
+    const impuesto = document .getElementById("txtInpuesto").value;
+    const descuento = document .getElementById("txtDescuento").value;
+    const total = document .getElementById("txtTotal").value;
+
+    const data ={
+        documento,
+        fecha,
+        numero,
+        cliente,
+        trabajador,
+        listaProductos,
+        impuesto,
+        descuento,
+        total
+    }
+
+    fetch('http://localhost:8080/proyecto-farmacia/mantenimiento/agregar_venta', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        window.location.href = 'venta';
+    })
+}
