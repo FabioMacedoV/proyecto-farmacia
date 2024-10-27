@@ -378,22 +378,32 @@ class Mantenimiento extends Control
         $this->load_view('mantenimiento/producto/form-producto', $datos);
     }
 
-    public function inventario()
-    {
+    public function inventario() {
         $nombre = isset($_GET['nombre']) ? $_GET['nombre'] : '';
-
+    
         $conexion = $this->load_model('Inventario');
-
         $grilla = $conexion->obtenerGrilla($nombre);
-
+        $productos = $conexion->obtenerTodosProductos(); // Obtener todos los productos
+    
         $datos = [
             'title' => 'Inventario',
             'css-ext' => '/css/mantenimiento/grid-view.css',
             'js-ext' => '/js/mantenimiento/inventario.js',
             'grid' => $grilla,
+            'productos' => $productos, // Pasar los productos a la vista
         ];
-
+    
         $this->load_view('mantenimiento/inventario/grid-inventario', $datos);
+    }
+
+    public function obtenerDetallesProducto()
+    {
+        $producto_id = isset($_GET['producto_id']) ? (int)$_GET['producto_id'] : 0;
+
+        $conexion = $this->load_model('Inventario');
+        $productoDetalles = $conexion->obtenerInventarioPorProducto($producto_id); // Asegúrate de tener este método en tu modelo
+
+        echo json_encode($productoDetalles);
     }
 
     public function venta()
@@ -508,7 +518,7 @@ class Mantenimiento extends Control
             'success' => true,
             'modelProducto' => 'Hecho exitosamente',
         ]);
-        
+
         }else{
             echo json_encode([
                 'success' => false,
