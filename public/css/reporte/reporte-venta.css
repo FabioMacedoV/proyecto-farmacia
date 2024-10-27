@@ -1,0 +1,32 @@
+body {
+    display: flex;
+}
+
+.header {
+    background-color: #17a2b8;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+.filter {
+    margin: 20px 0;
+}
+
+table {
+    background-color: white;
+}
+
+thead {
+    background-color: #17a2b8;
+    color: white;
+}
+.total-sales {
+    font-size: 1.25rem;
+    color: #343a40;
+    font-weight: bold;
+}
+.btn-custom {
+    background-color: #28a745;
+    color: white;
+}

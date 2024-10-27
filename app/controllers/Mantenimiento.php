@@ -194,7 +194,7 @@ class Mantenimiento extends Control{
             'horarios' => $horarios,
         ];
 
-        $this->load_view('mantenimiento/form-empleado', $datos);
+        $this->load_view('mantenimiento/empleado/form-empleado', $datos);
     }
 
     public function producto(){

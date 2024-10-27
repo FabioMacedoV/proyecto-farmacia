@@ -1,0 +1,38 @@
+.header {
+    background-color: #17a2b8;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+.filter {
+    margin: 20px 0;
+}
+table {
+    background-color: white;
+    font-size: 16px; /* Cambiar tamaño de la fuente */
+}
+thead {
+    background-color: #17a2b8;
+    color: white;
+    text-align: left;
+}
+th, td {
+    padding: 12px;
+}
+.total-inventory {
+    font-size: 1.25rem;
+    color: #343a40;
+}
+.btn-custom {
+    background-color: #28a745;
+    color: white;
+}
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+.total-inventory {
+    font-weight: bold;
+}

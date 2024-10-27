@@ -4,7 +4,6 @@
 
 <?php require_once APP . '/views/inc/header.php' ?>
 
-
 <div class="row">
     <div class="col-2">
         <?php require_once APP . '/views/inc/nav-dashboard.php' ?>
