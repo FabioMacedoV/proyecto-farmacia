@@ -26,4 +26,56 @@ class Venta extends Control{
 
     }
 
+    public function obtenerVenta($id){
+        $sql = "EXEC [dbo].[sp_obtenerventaporid] @venta_id = :id";
+
+        $this->db->conectar();
+
+        $stmt = $this->db->prepare($sql);
+
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
+    }
+
+    public function obtenerDetalleVenta($id){
+        $sql = "EXEC [dbo].[sp_obtenerdetalleventaporid] @venta_id = :id";
+
+        $this->db->conectar();
+
+        $stmt = $this->db->prepare($sql);
+
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
+    }
+
+    public function obtenerProductoPorId($id){
+        $sql = "EXEC [dbo].[sp_obtener_producto_por_id] @producto_id = :id";
+
+        $this->db->conectar();
+
+        $stmt = $this->db->prepare($sql);
+
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
+    }
+
+    public function agregarDatosVenta($data){
+        $sql = "EXEC [dbo].[sp_obtener_producto_por_id] ";
+    }
+
 }

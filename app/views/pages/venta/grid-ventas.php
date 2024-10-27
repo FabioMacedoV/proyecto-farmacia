@@ -16,7 +16,7 @@
             <div class="container title-workers">
                 <h2>Bienvenido al listado de Ventas</h2>
                 <!-- <pre><?php print_r($datos["grid"]); ?></pre> -->
-                <a href="<?= URL . "/mantenimiento/orden_venta" ?>" class="boton"><button><i class="fa fa-plus" aria-hidden="true"></i> Agregar</button></a>
+                <a href="<?= URL . "/mantenimiento/registrar_venta" ?>" class="boton"><button><i class="fa fa-plus" aria-hidden="true"></i> Agregar</button></a>
             </div>
 
             <div class="container table-workers">

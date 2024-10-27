@@ -1,8 +1,10 @@
 <?php
 
-class Mantenimiento extends Control{
+class Mantenimiento extends Control
+{
 
-    public function inicio(){ 
+    public function inicio()
+    {
         $conexion = $this->load_model("GraficosEstadisticas");
         $ventaMes = $conexion->ventasMes();
         $productoVendido = $conexion->productoMasVendido();
@@ -14,17 +16,18 @@ class Mantenimiento extends Control{
             'title' => 'Inicio',
             'css-ext' => '/css/mantenimiento/inicio.css',
             'ventaMes' => $ventaMes[0],
-            'productoVendido'=> $productoVendido[0],
-            'ventaDiaria'=> $ventaDiaria[0],
-            'clientesFrecuentes'=> $clientesFrecuentes,
-            'cantidadVentasMes'=> $cantidadVentasMes,
+            'productoVendido' => $productoVendido[0],
+            'ventaDiaria' => $ventaDiaria[0],
+            'clientesFrecuentes' => $clientesFrecuentes,
+            'cantidadVentasMes' => $cantidadVentasMes,
         ];
 
         $this->load_view('mantenimiento/inicio', $datos);
     }
 
-    public function empleado(){
-        $nombre = isset($_GET['nombre']) ? $_GET['nombre'] : ''; 
+    public function empleado()
+    {
+        $nombre = isset($_GET['nombre']) ? $_GET['nombre'] : '';
 
         $conexion = $this->load_model("Empleado");
 
@@ -33,23 +36,24 @@ class Mantenimiento extends Control{
         $datos = [
             'title' => 'Empleados',
             'css-ext' => '/css/mantenimiento/grid-view.css',
-            'js-ext'=>'/js/mantenimiento/empleado.js',
+            'js-ext' => '/js/mantenimiento/empleado.js',
             'grid' => $grilla,
         ];
 
         $this->load_view('mantenimiento/empleado/grid-empleado', $datos);
     }
 
-    public function registro_empleado(){
+    public function registro_empleado()
+    {
 
         $conexion = $this->load_model('Comun');
-        $roles = $conexion -> obtenerRoles();
-        $horarios = $conexion -> obtenerHorarios();
+        $roles = $conexion->obtenerRoles();
+        $horarios = $conexion->obtenerHorarios();
 
         $datos = [
             'title' => 'Registro Empleados',
             'css-ext' => '/css/mantenimiento/form-empleado.css',
-            'js-ext'=>'/js/mantenimiento/empleado.js',
+            'js-ext' => '/js/mantenimiento/empleado.js',
             'tipoRegistro' => 0,
             'roles' => $roles,
             'horarios' => $horarios,
@@ -58,13 +62,14 @@ class Mantenimiento extends Control{
         $this->load_view('mantenimiento/empleado/form-empleado', $datos);
     }
 
-    public function editar_empleado($ID){
+    public function editar_empleado($ID)
+    {
 
         $conexion = $this->load_model('Comun');
         $modeloEmpleado = $this->load_model('Empleado');
 
-        $roles = $conexion -> obtenerRoles();
-        $horarios = $conexion -> obtenerHorarios();
+        $roles = $conexion->obtenerRoles();
+        $horarios = $conexion->obtenerHorarios();
         $lista = $modeloEmpleado->obtenerEmpleado($ID);
 
         $empleado = $lista[0];
@@ -72,7 +77,7 @@ class Mantenimiento extends Control{
         $datos = [
             'title' => 'Actualizar Empleados',
             'css-ext' => '/css/mantenimiento/form-empleado.css',
-            'js-ext'=>'/js/mantenimiento/empleado.js',
+            'js-ext' => '/js/mantenimiento/empleado.js',
             'tipoRegistro' => 1,
             'empleado' => $empleado,
             'roles' => $roles,
@@ -82,7 +87,8 @@ class Mantenimiento extends Control{
         $this->load_view('mantenimiento/empleado/form-empleado', $datos);
     }
 
-    public function guardar_empleado(){
+    public function guardar_empleado()
+    {
         $modeloEmpleado = $this->load_model('Empleado');
 
         $nombre = trim($_POST['txtNombre']);
@@ -115,14 +121,14 @@ class Mantenimiento extends Control{
 
         $resp = $modeloEmpleado->guardarEmpleado($data);
 
-        if($resp){
-            header("Location: ".URL.'/mantenimiento/empleado');
+        if ($resp) {
+            header("Location: " . URL . '/mantenimiento/empleado');
             exit();
         }
-
     }
 
-    public function actualizar_empleado(){
+    public function actualizar_empleado()
+    {
         $modeloEmpleado = $this->load_model('Empleado');
 
         $id = trim($_POST['idEmpleado']);
@@ -157,29 +163,31 @@ class Mantenimiento extends Control{
 
         $resp = $modeloEmpleado->actualizarEmpleado($data);
 
-        if($resp){
-            header("Location: ".URL.'/mantenimiento/empleado');
+        if ($resp) {
+            header("Location: " . URL . '/mantenimiento/empleado');
             exit();
         }
     }
 
-    public function eliminar_empleado($ID){
+    public function eliminar_empleado($ID)
+    {
         $modeloEmpleado = $this->load_model('Empleado');
 
         $resp = $modeloEmpleado->eliminarEmpleado($ID);
 
-        if($resp){
-            header("Location: ".URL.'/mantenimiento/empleado');
+        if ($resp) {
+            header("Location: " . URL . '/mantenimiento/empleado');
             exit();
         }
     }
 
-    public function visualizar_empleado($ID){
+    public function visualizar_empleado($ID)
+    {
         $conexion = $this->load_model('Comun');
         $modeloEmpleado = $this->load_model('Empleado');
 
-        $roles = $conexion -> obtenerRoles();
-        $horarios = $conexion -> obtenerHorarios();
+        $roles = $conexion->obtenerRoles();
+        $horarios = $conexion->obtenerHorarios();
         $lista = $modeloEmpleado->obtenerEmpleado($ID);
 
         $empleado = $lista[0];
@@ -187,7 +195,7 @@ class Mantenimiento extends Control{
         $datos = [
             'title' => 'Actualizar Empleados',
             'css-ext' => '/css/mantenimiento/form-empleado.css',
-            'js-ext'=>'/js/mantenimiento/empleado.js',
+            'js-ext' => '/js/mantenimiento/empleado.js',
             'tipoRegistro' => 2,
             'empleado' => $empleado,
             'roles' => $roles,
@@ -197,7 +205,8 @@ class Mantenimiento extends Control{
         $this->load_view('mantenimiento/empleado/form-empleado', $datos);
     }
 
-    public function producto(){
+    public function producto()
+    {
 
         $nombre = isset($_GET['nombre']) ? $_GET['nombre'] : '';
 
@@ -208,24 +217,25 @@ class Mantenimiento extends Control{
         $datos = [
             'title' => 'Productos',
             'css-ext' => '/css/mantenimiento/grid-view.css',
-            'js-ext'=>'/js/mantenimiento/producto.js',
+            'js-ext' => '/js/mantenimiento/producto.js',
             'grid' => $grilla,
         ];
 
         $this->load_view('mantenimiento/producto/grid-producto', $datos);
     }
 
-    public function registro_producto(){
+    public function registro_producto()
+    {
 
         $conexion = $this->load_model('Comun');
-        $categorias = $conexion -> obtenerCategorias();
-        $marcas = $conexion -> obtenerMarcas();
-        $proveedores = $conexion -> obtenerProveedores();
+        $categorias = $conexion->obtenerCategorias();
+        $marcas = $conexion->obtenerMarcas();
+        $proveedores = $conexion->obtenerProveedores();
 
         $datos = [
             'title' => 'Registro Productos',
             'css-ext' => '/css/mantenimiento/form-producto.css',
-            'js-ext'=>'/js/mantenimiento/producto.js',
+            'js-ext' => '/js/mantenimiento/producto.js',
             'tipoRegistro' => 0,
             'categorias' => $categorias,
             'marcas' => $marcas,
@@ -233,22 +243,22 @@ class Mantenimiento extends Control{
         ];
 
         $this->load_view('mantenimiento/producto/form-producto', $datos);
-
     }
 
-    public function editar_producto($ID){
+    public function editar_producto($ID)
+    {
         $conexion = $this->load_model('Comun');
         $modeloProducto = $this->load_model('Producto');
 
-        $categorias = $conexion -> obtenerCategorias();
-        $marcas = $conexion -> obtenerMarcas();
-        $proveedores = $conexion -> obtenerProveedores();
-        $lista = $modeloProducto -> obtenerProducto($ID);
+        $categorias = $conexion->obtenerCategorias();
+        $marcas = $conexion->obtenerMarcas();
+        $proveedores = $conexion->obtenerProveedores();
+        $lista = $modeloProducto->obtenerProducto($ID);
 
         $datos = [
             'title' => 'Registro Productos',
             'css-ext' => '/css/mantenimiento/form-producto.css',
-            'js-ext'=>'/js/mantenimiento/producto.js',
+            'js-ext' => '/js/mantenimiento/producto.js',
             'tipoRegistro' => 1,
             'categorias' => $categorias,
             'marcas' => $marcas,
@@ -259,7 +269,8 @@ class Mantenimiento extends Control{
         $this->load_view('mantenimiento/producto/form-producto', $datos);
     }
 
-    public function guardar_producto(){
+    public function guardar_producto()
+    {
         $modeloProducto = $this->load_model('Producto');
 
         $nombre = trim($_POST['txtNombre']);
@@ -288,13 +299,13 @@ class Mantenimiento extends Control{
 
         $resp = $modeloProducto->guardarProducto($data);
 
-        if($resp){
-            header("Location: ".URL.'/mantenimiento/producto');
+        if ($resp) {
+            header("Location: " . URL . '/mantenimiento/producto');
             exit();
         }
-        
     }
-    public function actualizar_producto(){
+    public function actualizar_producto()
+    {
         $modeloProducto = $this->load_model('Producto');
 
         $id = trim($_POST['idProducto']);
@@ -310,7 +321,7 @@ class Mantenimiento extends Control{
         $contradiccion = trim($_POST['txtContradiccion']);
 
         $data = [
-            'id'=> $id,
+            'id' => $id,
             'nombre' => $nombre,
             'categoria' => $categoria,
             'marca' => $marca,
@@ -325,36 +336,38 @@ class Mantenimiento extends Control{
 
         $resp = $modeloProducto->actualizarProducto($data);
 
-        if($resp){
-            header("Location: ".URL.'/mantenimiento/producto');
+        if ($resp) {
+            header("Location: " . URL . '/mantenimiento/producto');
             exit();
         }
     }
 
-    public function eliminar_producto($ID){
+    public function eliminar_producto($ID)
+    {
         $modeloProducto = $this->load_model('Producto');
 
         $resp = $modeloProducto->eliminarProducto($ID);
 
-        if($resp){
-            header("Location: ".URL.'/mantenimiento/producto');
+        if ($resp) {
+            header("Location: " . URL . '/mantenimiento/producto');
             exit();
         }
     }
 
-    public function visualizar_producto($ID){
+    public function visualizar_producto($ID)
+    {
         $conexion = $this->load_model('Comun');
         $modeloProducto = $this->load_model('Producto');
 
-        $categorias = $conexion -> obtenerCategorias();
-        $marcas = $conexion -> obtenerMarcas();
-        $proveedores = $conexion -> obtenerProveedores();
-        $lista = $modeloProducto -> obtenerProducto($ID);
+        $categorias = $conexion->obtenerCategorias();
+        $marcas = $conexion->obtenerMarcas();
+        $proveedores = $conexion->obtenerProveedores();
+        $lista = $modeloProducto->obtenerProducto($ID);
 
         $datos = [
             'title' => 'Registro Productos',
             'css-ext' => '/css/mantenimiento/form-producto.css',
-            'js-ext'=>'/js/mantenimiento/producto.js',
+            'js-ext' => '/js/mantenimiento/producto.js',
             'tipoRegistro' => 2,
             'categorias' => $categorias,
             'marcas' => $marcas,
@@ -365,7 +378,8 @@ class Mantenimiento extends Control{
         $this->load_view('mantenimiento/producto/form-producto', $datos);
     }
 
-    public function inventario(){
+    public function inventario()
+    {
         $nombre = isset($_GET['nombre']) ? $_GET['nombre'] : '';
 
         $conexion = $this->load_model('Inventario');
@@ -375,103 +389,149 @@ class Mantenimiento extends Control{
         $datos = [
             'title' => 'Inventario',
             'css-ext' => '/css/mantenimiento/grid-view.css',
-            'js-ext'=>'/js/mantenimiento/inventario.js',
+            'js-ext' => '/js/mantenimiento/inventario.js',
             'grid' => $grilla,
         ];
 
         $this->load_view('mantenimiento/inventario/grid-inventario', $datos);
     }
 
-    public function venta(){
+    public function venta()
+    {
 
         $nombre = isset($_GET['nombre']) ? $_GET['nombre'] : '';
 
-        $conexion = $this-> load_model('Venta');
+        $conexion = $this->load_model('Venta');
 
         $grilla = $conexion->obtenerGrilla($nombre);
 
         $datos = [
             'title' => 'Ventas',
             'css-ext' => '/css/mantenimiento/grid-view.css',
-            'js-ext'=>'/js/mantenimiento/venta.js',
+            'js-ext' => '/js/mantenimiento/venta.js',
             'grid' => $grilla,
         ];
 
         $this->load_view('venta/grid-ventas', $datos);
     }
 
-    public function detalle_ventas($id){
-        $datos = [
-            'title' => 'Detalle Ventas',
-            'css-ext' => '/css/mantenimiento/detalle-ventas.css',
-            'grid' => [
-                ["id" => "01", "fecha" => '01/01/2024', "total" => "150.30", "cliente" => "Cliente 1", "trabajador" => "Trabajador 01", "producto" => "Producto 01"],
-                ["id" => "02", "fecha" => '01/01/2024', "total" => "220.50", "cliente" => "Cliente 2", "trabajador" => "Trabajador 02", "producto" => "Producto 02"],
-            ]
-        ];
-
-        $this->load_view('venta/detalle-ventas', $datos);
-    }
-
-    public function orden_venta(){
-
+    public function registrar_venta()
+    {
         $conexion = $this->load_model('Comun');
-        $productos = $conexion -> obtenerProductos();
+
+        $productos = $conexion->obtenerProductos();
+        $clientes = $conexion->obtenerClientes();
 
         $datos = [
             'title' => 'Orden Venta',
             'css-ext' => '/css/mantenimiento/orden-venta.css',
-            'grid-productos'=> [],
+            'js-ext-extra' => '/js/mantenimiento/venta.js',
+            'tipoRegistro' => 0,
             'tipo-documento' => [
                 ["value" => 1, "label" => "Boleta"],
                 ["value" => 2, "label" => "Factura"],
             ],
             'productos' => $productos,
+            'clientes'=> $clientes,
         ];
 
         $this->load_view('venta/orden-venta', $datos);
-
     }
 
-    public function cliente(){
+    public function buscar_producto()
+    {
+        if (isset($_GET['producto'])) {
+            $producto = $_GET['producto'];
+            $modeloVenta = $this->load_model('Venta');
+
+            $dato = $modeloVenta->obtenerProductoPorId($producto);
+            if ($dato) {
+                echo json_encode([
+                    'success' => true,
+                    'modelProducto' => $dato
+                ]);
+            } else {
+                echo json_encode([
+                    'success' => false,
+                    'message' => 'Producto no encontrado'
+                ]);
+            }
+        } else {
+            echo json_encode([
+                'success' => false,
+                'message' => 'Parámetro producto no especificado'
+            ]);
+        }
+    }
+
+    public function orden_venta($id)
+    {
+        $conexion = $this->load_model('Comun');
+        $modeloVenta = $this->load_model('Venta');
+
+        $info = $modeloVenta->obtenerVenta($id);
+        $grid = $modeloVenta->obtenerDetalleVenta($id);
+
+        $productos = $conexion->obtenerProductos();
+        $clientes = $conexion->obtenerClientes();
+
+        $datos = [
+            'title' => 'Orden Venta',
+            'css-ext' => '/css/mantenimiento/orden-venta.css',
+            'venta' => $info[0],
+            'grid' => $grid,
+            'tipoRegistro' => 1,
+            'tipo-documento' => [
+                ["value" => 1, "label" => "Boleta"],
+                ["value" => 2, "label" => "Factura"],
+            ],
+            'productos' => $productos,
+            'clientes'=> $clientes,
+        ];
+        $this->load_view('venta/orden-venta', $datos);
+    }
+
+    public function cliente()
+    {
         $nombre = isset($_GET['nombre']) ? $_GET['nombre'] : '';
-        
+
         $conexion = $this->load_model('Cliente');
 
-        $grilla = $conexion -> obtenerGrilla($nombre);
+        $grilla = $conexion->obtenerGrilla($nombre);
 
         $datos = [
             'title' => 'Clientes',
             'css-ext' => '/css/mantenimiento/grid-view.css',
-            'js-ext'=>'/js/mantenimiento/cliente.js',
+            'js-ext' => '/js/mantenimiento/cliente.js',
             'grid' => $grilla,
         ];
 
         $this->load_view('mantenimiento/cliente/grid-clientes', $datos);
     }
 
-    public function registro_cliente(){
+    public function registro_cliente()
+    {
 
         $datos = [
             'title' => 'Registro Cliente',
             'css-ext' => '/css/mantenimiento/form-clientes.css',
-            'js-ext'=>'/js/mantenimiento/cliente.js',
+            'js-ext' => '/js/mantenimiento/cliente.js',
             'tipoRegistro' => 0,
         ];
 
         $this->load_view('mantenimiento/cliente/form-clientes', $datos);
-
     }
 
-    public function editar_cliente($ID){
-        $modeloCliente = $this -> load_model('Cliente');
+    public function editar_cliente($ID)
+    {
+        $modeloCliente = $this->load_model('Cliente');
 
-        $cliente = $modeloCliente -> obtenerCliente($ID);
+        $cliente = $modeloCliente->obtenerCliente($ID);
 
         $datos = [
             'title' => 'Registro Cliente',
             'css-ext' => '/css/mantenimiento/form-clientes.css',
-            'js-ext'=>'/js/mantenimiento/cliente.js',
+            'js-ext' => '/js/mantenimiento/cliente.js',
             'tipoRegistro' => 1,
             'cliente' => $cliente[0],
         ];
@@ -479,8 +539,9 @@ class Mantenimiento extends Control{
         $this->load_view('mantenimiento/cliente/form-clientes', $datos);
     }
 
-    public function guardar_cliente(){
-        $modeloCliente = $this -> load_model('Cliente');
+    public function guardar_cliente()
+    {
+        $modeloCliente = $this->load_model('Cliente');
 
         $nombre = trim($_POST['txtNombre']);
         $dni = trim($_POST['txtDni']);
@@ -498,15 +559,15 @@ class Mantenimiento extends Control{
 
         $resp = $modeloCliente->guardarCliente($data);
 
-        if($resp){
-            header("Location: ".URL.'/mantenimiento/cliente');
+        if ($resp) {
+            header("Location: " . URL . '/mantenimiento/cliente');
             exit();
         }
-
     }
 
-    public function actualizar_cliente(){
-        $modeloCliente = $this -> load_model('Cliente');
+    public function actualizar_cliente()
+    {
+        $modeloCliente = $this->load_model('Cliente');
 
         $id = trim($_POST['idCliente']);
         $nombre = trim($_POST['txtNombre']);
@@ -526,37 +587,38 @@ class Mantenimiento extends Control{
 
         $resp = $modeloCliente->actualizarCliente($data);
 
-        if($resp){
-            header("Location: ".URL.'/mantenimiento/cliente');
+        if ($resp) {
+            header("Location: " . URL . '/mantenimiento/cliente');
             exit();
         }
     }
 
-    public function eliminar_cliente($ID){
-        $modeloCliente = $this -> load_model('Cliente');
+    public function eliminar_cliente($ID)
+    {
+        $modeloCliente = $this->load_model('Cliente');
 
         $resp = $modeloCliente->eliminarCliente($ID);
 
-        if($resp){
-            header("Location: ".URL.'/mantenimiento/cliente');
+        if ($resp) {
+            header("Location: " . URL . '/mantenimiento/cliente');
             exit();
         }
     }
 
-    public function visualizar_cliente($ID){
-        $modeloCliente = $this -> load_model('Cliente');
+    public function visualizar_cliente($ID)
+    {
+        $modeloCliente = $this->load_model('Cliente');
 
-        $cliente = $modeloCliente -> obtenerCliente($ID);
+        $cliente = $modeloCliente->obtenerCliente($ID);
 
         $datos = [
             'title' => 'Registro Cliente',
             'css-ext' => '/css/mantenimiento/form-clientes.css',
-            'js-ext'=>'/js/mantenimiento/cliente.js',
+            'js-ext' => '/js/mantenimiento/cliente.js',
             'tipoRegistro' => 2,
             'cliente' => $cliente[0],
         ];
 
         $this->load_view('mantenimiento/cliente/form-clientes', $datos);
     }
-
 }
