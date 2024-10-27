@@ -134,21 +134,7 @@ if ($datos["tipoRegistro"] == 1) {
                                     <th scope="col" style="width: 15%;">Precio</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <?php if (!empty($datos['grid'])) : ?>
-                                    <?php foreach ($datos['grid'] as $row): ?>
-                                        <tr style="text-align: center;">
-                                            <td><?php echo $row['nombre']; ?></td>
-                                            <td><?php echo $row['descripcion']; ?></td>
-                                            <td><?php echo $row['cantidad']; ?></td>
-                                            <td><?php echo $row['precio']; ?></td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                <?php else : ?>
-                                    <tr>
-                                        <td colspan="4">No hay productos en esta venta</td>
-                                    </tr>
-                                <?php endif; ?>
+                            <tbody id="tablaMedicamentos">
                             </tbody>
                         </table>
                     </div>

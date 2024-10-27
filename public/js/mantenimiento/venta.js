@@ -31,13 +31,59 @@ function buscarProducto(){
     }).catch(error => console.error('Error:', error));
 }
 
+let productos = [];
+
 function agregarProducto(){
     debugger
-    let id_doc = document.getElementById("selectDoc").value;
-    let producto = document.getElementById("selectProducto").value;
-    let descripcion = document.getElementById("txtDescripcion").value;
-    let stock = document.getElementById("txtStock").value;
-    let precio = document.getElementById("txtPrecio").value;
-    let cantidad = document.getElementById("txtCantidad").value;
+    const productoSeleccionado = document.getElementById('selectProducto');
+    
+    const descripcion = document.getElementById('txtDescripcion').value;
+    const precio = document.getElementById('txtPrecio').value;
+    const cantidad = document.getElementById('txtCantidad').value;
 
+    if (!productoSeleccionado.value || !descripcion || !precio || !cantidad) {
+        alert("Por favor, complete todos los campos del producto");
+        return;
+    }
+
+    const opcionSeleccionada = productoSeleccionado.options[productoSeleccionado.selectedIndex];
+    const producto = {
+        id: productoSeleccionado.value,
+        nombre: opcionSeleccionada.text,
+        descripcion: descripcion,
+        cantidad: cantidad,
+        precio: precio
+    }
+
+    productos.push(producto);
+    actualizarTabla();
+    calcularTotales();
+    limpiarProducto();
 }
+
+function actualizarTabla(){
+    const tbody = document.getElementById("tablaMedicamentos");
+    tbody.innerHTML = "";
+
+    productos.forEach((producto) => {
+        const row = tbody.insertRow();
+        row.innerHTML = `
+            <td>${producto.nombre}</td>
+            <td>${producto.descripcion}</td>
+            <td>${producto.cantidad}</td>
+            <td>${producto.precio}</td>`;
+    });
+};
+
+function calcularTotales(){
+    const total = productos.reduce((sum, product) => sum + product.total, 0);
+    document.getElementById("txtCantidad").textContent = total
+}
+
+function limpiarProducto(){
+    document.getElementById('selectProducto').value = 0;
+    document.getElementById('txtDescripcion').value = '';
+    document.getElementById('txtPrecio').value = '';
+    document.getElementById('txtCantidad').value = '';
+
+} 
