@@ -6,10 +6,15 @@ class Conexion extends Control{
 
     function conectar(){
 
-        $host = "DESKTOP-JOAJFTF\SQLSERVER";
-        $dbname = "NickyMedic";
-        $username = "usr_nickymedic";
-        $password = "prueba12345";
+        // $host = "DESKTOP-JOAJFTF\SQLSERVER";
+        // $dbname = "NickyMedic";
+        // $username = "usr_nickymedic";
+        // $password = "prueba12345";
+
+        $host = "DBNickyMedic.mssql.somee.com";
+        $dbname = "DBNickyMedic";
+        $username = "Pandoro123_SQLLogin_1";
+        $password = "pgap22bn7n";
 
         try{
             $this->conexion = new PDO("sqlsrv:server=$host;database=$dbname", $username, $password);
